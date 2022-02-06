@@ -1,0 +1,11 @@
+.base {
+    height: 65px;
+    width: 1600px;
+    background-color: #d1e0ed;
+    position: relative;
+}
+
+.search {
+    margin-top: 3px;
+    margin-left: 106px;
+}

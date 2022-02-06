@@ -1,0 +1,61 @@
+.menu {
+    width: 95px;
+    height: 1200px;
+    background-color: #002137;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.logo {
+    margin-top: 16px;
+    margin-left: 26px;
+}
+
+.knowledge_base {
+    margin-top: 33px;
+}
+
+.knowledge_base, .applications, .employees, .clients, .assets, .settings {
+    height: 70px;
+    width: 95px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.knowledge_base {
+    padding-top: 13px;
+}
+
+.applications, .assets {
+    padding-top: 15px;
+}
+
+.employees {
+    padding-top: 20px;
+    background-color: royalblue;
+}
+
+.clients {
+    padding-top: 14px;
+}
+
+.settings {
+    padding-top: 16px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+.menu p {
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 75%;
+    line-height: 10px;
+    margin-bottom: 14px;
+    margin-top: 0px;
+}
+
+div.knowledge_base a.turnOn {
+    color: red;
+    background-color: aqua;
+}
