@@ -33,7 +33,6 @@
 
 .employees {
     padding-top: 20px;
-    background-color: royalblue;
 }
 
 .clients {
@@ -55,7 +54,10 @@
     margin-top: 0px;
 }
 
-div.knowledge_base a.turnOn {
-    color: red;
-    background-color: aqua;
+.active div {
+    background-color: #002c49
+}
+
+.a {
+    text-decoration: none;
 }

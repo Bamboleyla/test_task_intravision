@@ -1,0 +1,66 @@
+.createApplocation {
+    background-color: #008cf0;
+    width: 180px;
+    height: 40px;
+    border-radius: 20px;
+    margin-left: 262px;
+    box-sizing: border-box;
+}
+
+.createApplocation p {
+    text-align: center;
+    margin: 0px;
+    color: #ffffff;
+    font-size: 100%;
+    line-height: 40px;
+}
+
+.content {
+    background-color: bisque;
+    margin-left: 95px;
+    padding-top: 25px;
+}
+
+.priority {
+    width: 51px;
+    height: 51px;
+}
+
+.id {
+    height: 51px;
+    width: 82px;
+}
+
+.name {
+    height: 51px;
+    width: 420px;
+
+}
+
+.status {
+    height: 51px;
+    width: 117px;
+}
+
+.executor {
+    height: 51px;
+    width: auto;
+    padding-left: 24px;
+}
+
+.id, .name, .status, .executor p {
+    font-weight: 500;
+    line-height: 51px;
+}
+
+p {
+    margin: 0px;
+}
+
+.priority, .id, .name, .status, .executor {
+    box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid;
+    margin-top: 5px;
+    vertical-align: middle;
+}
