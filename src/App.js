@@ -1,5 +1,5 @@
 import './App.css';
-import { Applications } from './components/Applications/Applications';
+import { ApplicationsContainer } from './components/Applications/ApplicationsContainer';
 import { Employees } from './components/Employees/Employees';
 import { Header } from './components/Header/Header'
 import { KnowledgeBase } from './components/KnowledgeBase/KnowledgeBase';
@@ -22,7 +22,7 @@ export const App = () => {
       < div className='app-content' >
         <Routes>
           < Route path='/knowledgebase' element={< KnowledgeBase />} /> {/* База знаний*/}
-          < Route path='/applications' element={< Applications />} /> {/* Заявки */}
+          < Route path='/applications' element={< ApplicationsContainer />} /> {/* Заявки */}
           < Route path='/assets' element={< Assets />} /> {/* Активы */}
           < Route path='/clients' element={< Clients />} /> {/* Клиенты */}
           < Route path='/employees' element={< Employees />} /> {/* Сотрудники */}
