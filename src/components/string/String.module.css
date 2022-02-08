@@ -1,0 +1,25 @@
+.priority, .id, .name, .status, .executor {
+    height: 54px;
+    display: inline-block;
+}
+
+.priority {
+    width: 51px;
+}
+
+.id {
+    width: 82px;
+}
+
+.name {
+    width: 420px;
+
+}
+
+.status {
+    width: 117px;
+}
+
+.executor {
+    width: auto;
+}

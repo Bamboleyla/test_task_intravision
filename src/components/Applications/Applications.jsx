@@ -1,6 +1,8 @@
+import { String } from "../string/String";
 import style from "./Applications.module.css";
 
-export const Applications = () => {
+export const Applications = (props) => {
+  debugger;
   return (
     <div className={style.content}>
       {/* Кнопка Создать заявку */}
@@ -27,6 +29,16 @@ export const Applications = () => {
         </div>
         {/* Тело таблицы */}
         <div className={style.body}></div>
+        {props.applicationsList.map((a) => (
+          /* Строки таблицы */
+          <String
+            statusRgb={a.priority}
+            id={a.id}
+            name={a.name}
+            statusName={a.statusName}
+            executorName={a.executorName}
+          />
+        ))}
       </div>
     </div>
   );
