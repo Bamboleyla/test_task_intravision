@@ -13,4 +13,8 @@ export const applicationsAPI = {
     getApplications() {
         return instance.get(`/odata/tasks?tenantguid=${TENANTGUID}`).then(response => response.data)
     },
+    //Получение приоритетов по заявкам
+    getApplicationsPriorities() {
+        return instance.get(`/api?tenantguid=${TENANTGUID}/Priorities`).then(response => response.data)
+    }
 }

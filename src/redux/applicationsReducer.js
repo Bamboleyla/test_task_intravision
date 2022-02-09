@@ -2,8 +2,9 @@ import { applicationsAPI } from "../api/api";
 
 const GET_APPLICATIONS = 'GET_APPLICATIONS';
 
-//Если в postPageReducer придет state = undefined будем использывать state по default
+//Инициализационный state
 let initialState = {
+    /* Заявки */
     applications: [
         {
             id: 193710,

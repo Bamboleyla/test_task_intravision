@@ -2,6 +2,8 @@ import { String } from "../string/String";
 import style from "./Applications.module.css";
 
 export const Applications = (props) => {
+  //Поиск приоритета заявки по id
+  let findPrioriti = (id) => props.priorities.find((el) => el.id == id);
   debugger;
   return (
     <div className={style.content}>
@@ -32,7 +34,8 @@ export const Applications = (props) => {
         {props.applicationsList.map((a) => (
           /* Строки таблицы */
           <String
-            statusRgb={a.priority}
+            prioritiesRgb={findPrioriti(a.id).rgb}
+            statusRgb={a.statusRgb}
             id={a.id}
             name={a.name}
             statusName={a.statusName}

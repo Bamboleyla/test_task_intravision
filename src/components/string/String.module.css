@@ -1,10 +1,14 @@
 .priority, .id, .name, .status, .executor {
     height: 54px;
     display: inline-block;
+    vertical-align: middle;
+    line-height: 54px;
 }
 
 .priority {
     width: 51px;
+    padding-top: 2px;
+    padding-left: 2px;
 }
 
 .id {
@@ -18,8 +22,28 @@
 
 .status {
     width: 117px;
+    line-height: normal;
 }
 
 .executor {
     width: auto;
+}
+
+.prLabel {
+    width: 5px;
+    height: 50px;
+}
+
+.stLabel {
+    border-radius: 11px;
+    margin-top: 19px;
+    box-sizing: content-box;
+    width: fit-content;
+    height: 22px;
+    color: #ffffff;
+}
+
+span {
+    margin-left: 16px;
+    margin-right: 16px;
 }

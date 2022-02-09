@@ -5,9 +5,9 @@ import { getApplications } from "../../redux/applicationsReducer";
 /*************************Контейнерная компонента*****************************/
 //Создаем функцию которая будет принимать через connect нужную часть state
 let mapStateToProps = (state) => {
-  debugger;
   return {
     applicationsList: state.applicationsPage.applications,
+    priorities: state.applicationsPriorities.priorities,
   };
 };
 
