@@ -1,6 +1,6 @@
 import { String } from "../string/String";
 import style from "./Applications.module.css";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export const Applications = (props) => {
   //Поиск приоритета заявки по id
@@ -8,11 +8,11 @@ export const Applications = (props) => {
   return (
     <div className={style.content}>
       {/* Кнопка Создать заявку */}
-      <Link to="create">
+      <NavLink to="create">
         <div className={style.createApplocation}>
           <p>Создать заявку</p>
         </div>
-      </Link>
+      </NavLink>
       {/* Таблица */}
       <div className={style.caption}>
         {/* Заголовок таблицы */}
