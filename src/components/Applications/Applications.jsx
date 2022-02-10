@@ -1,16 +1,18 @@
 import { String } from "../string/String";
 import style from "./Applications.module.css";
+import { Link, NavLink } from "react-router-dom";
 
 export const Applications = (props) => {
   //Поиск приоритета заявки по id
-  let findPrioriti = (id) => props.priorities.find((el) => el.id == id);
-  debugger;
+  let findPrioriti = (id) => props.priorities.find((el) => el.id === id);
   return (
     <div className={style.content}>
       {/* Кнопка Создать заявку */}
-      <div className={style.createApplocation}>
-        <p>Создать заявку</p>
-      </div>
+      <Link to="create">
+        <div className={style.createApplocation}>
+          <p>Создать заявку</p>
+        </div>
+      </Link>
       {/* Таблица */}
       <div className={style.caption}>
         {/* Заголовок таблицы */}
@@ -34,7 +36,12 @@ export const Applications = (props) => {
         {props.applicationsList.map((a) => (
           /* Строки таблицы */
           <String
-            prioritiesRgb={findPrioriti(a.id).rgb}
+            key={a.id}
+            prioritiesRgb={
+              findPrioriti(a.priorityId) === undefined
+                ? undefined
+                : findPrioriti(a.priorityId).rgb
+            }
             statusRgb={a.statusRgb}
             id={a.id}
             name={a.name}

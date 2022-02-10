@@ -21,12 +21,12 @@ export const App = () => {
       <Navigation />
       < div className='app-content' >
         <Routes>
-          < Route path='/knowledgebase' element={< KnowledgeBase />} /> {/* База знаний*/}
-          < Route path='/applications' element={< ApplicationsContainer />} /> {/* Заявки */}
-          < Route path='/assets' element={< Assets />} /> {/* Активы */}
-          < Route path='/clients' element={< Clients />} /> {/* Клиенты */}
-          < Route path='/employees' element={< Employees />} /> {/* Сотрудники */}
-          < Route path='/settings' element={< Settings />} /> {/* Настройки */}
+          < Route path='knowledgebase' element={< KnowledgeBase />} /> {/* База знаний*/}
+          < Route path='applications' element={< ApplicationsContainer />} /> {/* Заявки */}
+          < Route path='assets' element={< Assets />} /> {/* Активы */}
+          < Route path='clients' element={< Clients />} /> {/* Клиенты */}
+          < Route path='employees' element={< Employees />} /> {/* Сотрудники */}
+          < Route path='settings' element={< Settings />} /> {/* Настройки */}
         </Routes>
       </div>
     </div>

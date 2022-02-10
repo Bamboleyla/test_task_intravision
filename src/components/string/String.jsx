@@ -1,5 +1,4 @@
 import style from "./String.module.css";
-import React from "react";
 
 export const String = (props) => {
   //Поле с приоритетом заявки
@@ -25,7 +24,6 @@ export const String = (props) => {
       </div>
     );
   };
-  debugger;
   return (
     <div>
       <div className={style.priority}>{priority()}</div>

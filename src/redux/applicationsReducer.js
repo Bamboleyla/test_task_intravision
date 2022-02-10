@@ -1,4 +1,5 @@
 import { applicationsAPI } from "../api/api";
+import { setApplicationsPrioritiesAC } from "./applicationsPrioritiesReducer ";
 
 const GET_APPLICATIONS = 'GET_APPLICATIONS';
 
@@ -46,7 +47,7 @@ let initialState = {
 export const applicationsReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'GET_APPLICATIONS':
-            return { ...state, applications: [...action.appl] }
+            return { ...state, applications: [...action.applications] }
         default: return state;
     }
 };
@@ -57,6 +58,12 @@ export let getApplicationsAC = (applications) => ({ type: GET_APPLICATIONS, appl
 export const getApplications = () => {
     //Возврашаем Thunk
     return (dispatch) => {
+        //Делаем запрос на сервер за массивом с приоритетами заявок
+        applicationsAPI.getApplicationsPriorities().then((data) => {
+            debugger;
+            /* И диспачем его в state через метод getApplicationsAC */
+            dispatch(setApplicationsPrioritiesAC(data));
+        });
         //Делаем запрос на сервер за массивом с заявками
         applicationsAPI.getApplications().then((data) => {
             /* И диспачем его в state через метод getApplicationsAC */

@@ -1,8 +1,24 @@
 import { Applications } from "./Applications";
 import { connect } from "react-redux";
 import { getApplications } from "../../redux/applicationsReducer";
+import React from "react";
 
 /*************************Контейнерная компонента*****************************/
+class BlockApplicationsAPI extends React.Component {
+  /* Вызываем метод жизненного цикла компонента */
+  componentDidMount() {
+    //Получаем массив с заявками
+    this.props.getApplications();
+  }
+  render() {
+    return (
+      <Applications
+        applicationsList={this.props.applicationsList}
+        priorities={this.props.priorities}
+      />
+    );
+  }
+}
 //Создаем функцию которая будет принимать через connect нужную часть state
 let mapStateToProps = (state) => {
   return {
@@ -13,4 +29,4 @@ let mapStateToProps = (state) => {
 
 export const ApplicationsContainer = connect(mapStateToProps, {
   getApplications,
-})(Applications);
+})(BlockApplicationsAPI);
