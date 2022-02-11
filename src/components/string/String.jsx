@@ -25,10 +25,12 @@ export const String = (props) => {
     );
   };
   return (
-    <div>
+    <div className={style.string}>
       <div className={style.priority}>{priority()}</div>
       <div className={style.id}>{props.id}</div>
-      <div className={style.name}>{props.name}</div>
+      <div className={style.name}>
+        <p>{props.name}</p>
+      </div>
       <div className={style.status}>{status()}</div>
       <div className={style.executor}>{props.executorName}</div>
     </div>

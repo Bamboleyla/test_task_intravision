@@ -1,0 +1,46 @@
+.bodyForm {
+    position: fixed;
+    left: 625px;
+    height: 100%;
+    border-left: 1px solid #9f9ea7;
+    box-sizing: border-box;
+}
+
+.head {
+    height: 60px;
+    width: 975px;
+    background-color: #1a4876;
+}
+
+.head p {
+    color: #ffffff;
+    line-height: 60px;
+    margin-left: 37px;
+
+}
+
+.content {
+    margin-left: 37px;
+    margin-top: 55px;
+}
+
+.name textarea, .discription textarea {
+    width: 625px;
+    border: none;
+    border-radius: 5px;
+}
+
+.name p, .discription p {
+    margin-left: 5px;
+    color: #9f9ea7;
+}
+
+.name textarea {
+    height: 85px;
+    margin-top: 14px;
+}
+
+.discription textarea {
+    height: 134px;
+    margin-top: 16px;
+}

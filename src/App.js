@@ -11,6 +11,7 @@ import {
   Routes,
   Route
 } from "react-router-dom"
+import { CreateNewApplication } from './components/CreateNewApplication/CreateNewApplication';
 
 export const App = () => {
   return (
@@ -27,6 +28,7 @@ export const App = () => {
           < Route path='clients' element={< Clients />} /> {/* Клиенты */}
           < Route path='employees' element={< Employees />} /> {/* Сотрудники */}
           < Route path='settings' element={< Settings />} /> {/* Настройки */}
+          < Route path='applications/:create' element={< CreateNewApplication />} /> {/* Настройки */}
         </Routes>
       </div>
     </div>

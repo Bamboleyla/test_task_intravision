@@ -16,7 +16,6 @@ let initialState = {
 };
 
 export const applicationsPrioritiesReducer = (state = initialState, action) => {
-    debugger;
     switch (action.type) {
         case 'SET_PRIORITIES':
             return { ...state, priorities: [...action.priorities] }

@@ -60,7 +60,6 @@ export const getApplications = () => {
     return (dispatch) => {
         //Делаем запрос на сервер за массивом с приоритетами заявок
         applicationsAPI.getApplicationsPriorities().then((data) => {
-            debugger;
             /* И диспачем его в state через метод getApplicationsAC */
             dispatch(setApplicationsPrioritiesAC(data));
         });
