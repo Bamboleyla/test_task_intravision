@@ -1,0 +1,9 @@
+.header {
+    width: 975px;
+    height: 60px;
+    position: fixed;
+    top: 65px;
+    left: 625px;
+    z-index: 1;
+    background-color: aqua;
+}

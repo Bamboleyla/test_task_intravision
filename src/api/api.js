@@ -16,5 +16,9 @@ export const applicationsAPI = {
     //Получение приоритетов по заявкам
     getApplicationsPriorities() {
         return instance.get(`/api/${TENANTGUID}/Priorities`).then(response => response.data)
+    },
+    //Отправка новой заявки
+    setNewApplication(patern) {
+        return instance.post(`/api/${TENANTGUID}/Tasks`, patern).then(response => response.data)
     }
 }

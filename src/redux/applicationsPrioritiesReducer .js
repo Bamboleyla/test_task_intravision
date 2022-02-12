@@ -1,5 +1,3 @@
-import { applicationsAPI } from "../api/api";
-
 const SET_PRIORITIES = 'SET_PRIORITIES';
 
 //Инициализационный state

@@ -4,6 +4,8 @@
     height: 100%;
     border-left: 1px solid #9f9ea7;
     box-sizing: border-box;
+    top: 0px;
+    background-color: white;
 }
 
 .head {
@@ -43,4 +45,20 @@
 .discription textarea {
     height: 134px;
     margin-top: 16px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.button {
+    height: 36px;
+    width: 150px;
+    background-color: #008cf0;
+    border-radius: 20px;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.button span {
+    line-height: 36px;
 }
