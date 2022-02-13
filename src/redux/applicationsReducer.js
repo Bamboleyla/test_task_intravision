@@ -52,10 +52,21 @@ export const applicationsReducer = (state = initialState, action) => {
     }
 };
 /*****************************************************************************ACTION CREATORS*********************************************************************************************/
-export let getApplicationsAC = (applications) => ({ type: GET_APPLICATIONS, applications })
+let getApplicationsAC = (applications) => ({ type: GET_APPLICATIONS, applications })
 /*****************************************************************************THUNKS-CREATOR***********************************************************************************************/
 //Получение списка заявок
 export const getApplications = () => {
+    //Возврашаем Thunk
+    return (dispatch) => {
+        //Делаем запрос на сервер за массивом с заявками
+        applicationsAPI.getApplications().then((data) => {
+            /* И диспачем его в state через метод getApplicationsAC */
+            dispatch(getApplicationsAC(data.value));
+        });
+    }
+}
+//Создание новой заявки
+export const createApplication = () => {
     //Возврашаем Thunk
     return (dispatch) => {
         //Делаем запрос на сервер за массивом с приоритетами заявок

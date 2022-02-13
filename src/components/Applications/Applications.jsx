@@ -52,9 +52,7 @@ export const Applications = (props) => {
           ))}
         </div>
       </div>
-      <div className={style.appForm}>
-        <Outlet />
-      </div>
+      <Outlet />
     </div>
   );
 };

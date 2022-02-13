@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { Outlet } from "react-router";
+import { Outlet, useNavigate } from "react-router";
+import { applicationsAPI } from "../../api/api";
 import { CreateNewApplication } from "./CreateNewApplication";
+import { createApplication } from "../../redux/applicationsReducer";
 
 // Шаблон для отправки новой заявки через api
 let applicationTemplate = {
@@ -19,16 +21,28 @@ let applicationTemplate = {
   executorGroupId: 0,
 };
 
-export const CreateNewApplicationContainer = () => {
+const CreateNewApplicationContainer = (props) => {
   //Создаем локальный state для хранения текста из новой заявки
   let [textName, setTextName] = useState(""); //Текст названия
   let [textDiscription, setTextDiscription] = useState(""); //Текст описания
+  let [id, setId] = useState(""); //Текст описания
 
-  const changeName = (text) => setTextName(text); //Вносит изменения в название заявки
-  const changeDiscription = (text) => setTextDiscription(text); //Вносит изменения в описание заявки
+  const changeName = (text) => {
+    setTextName(text);
+    debugger;
+  }; //Вносит изменения в название заявки
+  const changeDiscription = (text) => {
+    setTextDiscription(text);
+    debugger;
+  }; //Вносит изменения в описание заявки
   const send = () => {
     applicationTemplate.name = textName;
     applicationTemplate.description = textDiscription;
+    setId(applicationsAPI.setNewApplication(applicationTemplate));
+    createApplication();
+    debugger;
+    props.navigate("../edit", { replace: true });
+    debugger;
   };
 
   return (
@@ -41,4 +55,9 @@ export const CreateNewApplicationContainer = () => {
       />
     </div>
   );
+};
+
+export const CreateNewApplicationWithNavigate = () => {
+  let navigate = useNavigate();
+  return <CreateNewApplicationContainer navigate={navigate} />;
 };

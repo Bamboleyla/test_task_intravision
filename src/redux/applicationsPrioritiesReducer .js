@@ -1,3 +1,5 @@
+import { applicationsAPI } from "../api/api";
+
 const SET_PRIORITIES = 'SET_PRIORITIES';
 
 //Инициализационный state
@@ -22,3 +24,15 @@ export const applicationsPrioritiesReducer = (state = initialState, action) => {
 };
 /*****************************************************************************ACTION CREATORS*********************************************************************************************/
 export let setApplicationsPrioritiesAC = (priorities) => ({ type: SET_PRIORITIES, priorities })
+/*****************************************************************************THUNKS-CREATOR***********************************************************************************************/
+//Получение списка заявок
+export const getPriorities = () => {
+    //Возврашаем Thunk
+    return (dispatch) => {
+        //Делаем запрос на сервер за массивом с приоритетами заявок
+        applicationsAPI.getApplicationsPriorities().then((data) => {
+            /* И диспачем его в state через метод getApplicationsAC */
+            dispatch(setApplicationsPrioritiesAC(data));
+        });
+    }
+};

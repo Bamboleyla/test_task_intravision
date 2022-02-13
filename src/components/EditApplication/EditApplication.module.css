@@ -1,9 +1,102 @@
+.body_form {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
 .header {
     width: 975px;
     height: 60px;
-    position: fixed;
-    top: 65px;
-    left: 625px;
     z-index: 1;
-    background-color: aqua;
+    background-color: #1a4876;
+    overflow: auto;
+    position: relative;
+}
+
+.content, .info {
+    display: inline-block;
+    height: 1080px;
+    background-color: white;
+}
+
+.id, .name, .close {
+    color: white;
+    position: absolute;
+}
+
+.id {
+    left: 36px;
+    top: 23px;
+}
+
+.name {
+    max-width: 560px;
+    top: 13px;
+    left: 131px;
+}
+
+.close {
+    right: 31px;
+    top: 23px;
+}
+
+.content {
+    width: 735px;
+    color: #9f9ea7;
+}
+
+.content p {
+    position: absolute;
+    margin-left: 34px;
+
+}
+
+.discription {
+    margin-top: 28px;
+}
+
+.discription_text {
+    margin-top: 54px;
+    max-height: 128px;
+    overflow: auto;
+}
+
+.add_comment {
+    margin-top: 191px;
+}
+
+.button {
+    color: #ffffff;
+    width: 160px;
+    height: 36px;
+    border-radius: 20px;
+    margin-top: 288px;
+    background-color: #008cf0;
+    margin-left: 34px;
+    box-sizing: border-box;
+    padding-left: 46px;
+    padding-top: 7px;
+}
+
+.button p {
+    margin: 0px;
+    font-size: 14px;
+}
+
+.discription_text {
+    color: black;
+}
+
+.comments {
+    width: 239px;
+}
+
+.user {}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #9f9ea7;
+    box-sizing: border-box;
 }

@@ -1,5 +1,10 @@
-.list, .appForm {
+.list {
     display: inline-block;
+}
+
+.list {
+    height: 1110px;
+    overflow: auto;
 }
 
 .createApplocation {
@@ -26,6 +31,7 @@
     background-color: bisque;
     margin-left: 95px;
     padding-top: 25px;
+    position: relative;
 }
 
 .priority {

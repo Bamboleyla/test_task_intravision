@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import style from "./CreateNewApplication.module.css";
 
 //Создаем ссылки для получения данных введенные пользователем
@@ -9,7 +8,7 @@ let discriptionValue = React.createRef(); //Для описания заявки
 export const CreateNewApplication = (props) => {
   //Отправка данных в local state
   let sendName = () => props.name(nameValue.current.value); //текст названия
-  let sendDiscription = () => props.name(discriptionValue.current.value); //текст описания
+  let sendDiscription = () => props.discription(discriptionValue.current.value); //текст описания
   return (
     <div className={style.bodyForm}>
       <div className={style.head}>
@@ -31,15 +30,13 @@ export const CreateNewApplication = (props) => {
           <textarea
             name="discription"
             id="discriptionApplication"
-            ref={discriptionValue}></textarea>
-          onChange ={sendDiscription}
+            ref={discriptionValue}
+            onChange={sendDiscription}></textarea>
         </div>
         {/* Кновка сохранить */}
-        <Link to="edit">
-          <div className={style.button} onClick={props.send}>
-            <span>Сохранить</span>
-          </div>
-        </Link>
+        <div className={style.button} onClick={props.send}>
+          <span>Сохранить</span>
+        </div>
       </div>
     </div>
   );

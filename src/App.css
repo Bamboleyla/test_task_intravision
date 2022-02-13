@@ -8,5 +8,9 @@
   height: 1200px;
   width: 1600px;
   background-color: #ffffff;
-  overflow: auto;
+  position: relative;
+}
+
+.content {
+  height: 1120px;
 }

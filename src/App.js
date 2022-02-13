@@ -11,7 +11,7 @@ import {
   Routes,
   Route
 } from "react-router-dom"
-import { CreateNewApplicationContainer } from './components/CreateNewApplication/CreateNewApplicationContainer';
+import { CreateNewApplicationWithNavigate } from './components/CreateNewApplication/CreateNewApplicationContainer';
 import { EditApplication } from './components/EditApplication/EditApplication';
 
 export const App = () => {
@@ -22,13 +22,12 @@ export const App = () => {
         <Header />
         {/* Левая боковая понель с кнопками навигации */}
         <Navigation />
-        < div className='app-content' >
+        < div className='content' >
           <Routes>
             < Route path='knowledgebase' element={< KnowledgeBase />} /> {/* База знаний*/}
             < Route path='applications' element={< ApplicationsContainer />} > {/* Заявки */}
-              < Route path='create' element={< CreateNewApplicationContainer />} > {/* Создать заявку */}
-                < Route path='edit' element={< EditApplication />} /> {/* Редактировать заявку */}
-              </Route>
+              < Route path='create' element={< CreateNewApplicationWithNavigate />} /> {/* Создать заявку */}
+              < Route path='edit' element={< EditApplication />} /> {/* Редактировать заявку */}
             </Route>
             < Route path='assets' element={< Assets />} /> {/* Активы */}
             < Route path='clients' element={< Clients />} /> {/* Клиенты */}
