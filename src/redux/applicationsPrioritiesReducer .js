@@ -1,4 +1,5 @@
 import { applicationsAPI } from "../api/api";
+//На всякий случай создадим свой dispatch на тот случай если вызов THUNK-CREATOR будет производится из компоненты находящаяся вне connect
 
 const SET_PRIORITIES = 'SET_PRIORITIES';
 
@@ -27,12 +28,14 @@ export let setApplicationsPrioritiesAC = (priorities) => ({ type: SET_PRIORITIES
 /*****************************************************************************THUNKS-CREATOR***********************************************************************************************/
 //Получение списка заявок
 export const getPriorities = () => {
+    debugger;
     //Возврашаем Thunk
     return (dispatch) => {
+        debugger;
         //Делаем запрос на сервер за массивом с приоритетами заявок
         applicationsAPI.getApplicationsPriorities().then((data) => {
             /* И диспачем его в state через метод getApplicationsAC */
-            dispatch(setApplicationsPrioritiesAC(data));
+            dispatch(setApplicationsPrioritiesAC(data.value));
         });
     }
 };

@@ -1,7 +1,7 @@
 import { App } from "./App"
-import { getPriorities } from "./redux/applicationsPrioritiesReducer ";
+import React from "react";
 
 export const AppContainer = () => {
-  getPriorities();
   return <App />
-};
+}
+

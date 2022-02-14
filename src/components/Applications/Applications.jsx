@@ -1,6 +1,6 @@
-import { String } from "../string/String";
 import style from "./Applications.module.css";
 import { Link, Outlet } from "react-router-dom";
+import { StringWithNavigate } from "../string/String";
 
 export const Applications = (props) => {
   //Поиск приоритета заявки по id
@@ -36,7 +36,7 @@ export const Applications = (props) => {
           <div className={style.body}></div>
           {props.applicationsList.map((a) => (
             /* Строки таблицы */
-            <String
+            <StringWithNavigate
               key={a.id}
               prioritiesRgb={
                 findPrioriti(a.priorityId) === undefined

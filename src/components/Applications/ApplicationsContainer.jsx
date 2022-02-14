@@ -11,6 +11,7 @@ class BlockApplicationsAPI extends React.Component {
     this.props.getApplications();
   }
   render() {
+    debugger;
     return (
       <Applications
         applicationsList={this.props.applicationsList}

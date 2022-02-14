@@ -12,9 +12,10 @@ import {
   Route
 } from "react-router-dom"
 import { CreateNewApplicationWithNavigate } from './components/CreateNewApplication/CreateNewApplicationContainer';
-import { EditApplication } from './components/EditApplication/EditApplication';
+import { EditApplicationContainer } from './components/EditApplication/EditApplicationContainer';
 
 export const App = () => {
+
   return (
     <div className='display'>
       <div className="App">
@@ -27,7 +28,7 @@ export const App = () => {
             < Route path='knowledgebase' element={< KnowledgeBase />} /> {/* База знаний*/}
             < Route path='applications' element={< ApplicationsContainer />} > {/* Заявки */}
               < Route path='create' element={< CreateNewApplicationWithNavigate />} /> {/* Создать заявку */}
-              < Route path='edit' element={< EditApplication />} /> {/* Редактировать заявку */}
+              < Route path='edit' element={< EditApplicationContainer />} /> {/* Редактировать заявку */}
             </Route>
             < Route path='assets' element={< Assets />} /> {/* Активы */}
             < Route path='clients' element={< Clients />} /> {/* Клиенты */}

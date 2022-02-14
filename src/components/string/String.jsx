@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router";
+import { getApplicationID } from "../../redux/editApplicationReducer";
 import style from "./String.module.css";
 
-export const String = (props) => {
+const String = (props) => {
   //Поле с приоритетом заявки
   let priority = () => {
     return (
@@ -24,8 +26,13 @@ export const String = (props) => {
       </div>
     );
   };
+  /* Обработчик события onClick, меняем url */
+  let changeUrl = () => {
+    props.preChange(props.id);
+    props.navigate("../applications/edit", { replace: true });
+  };
   return (
-    <div className={style.string}>
+    <div className={style.string} onClick={changeUrl}>
       <div className={style.priority}>{priority()}</div>
       <div className={style.id}>{props.id}</div>
       <div className={style.name}>
@@ -34,5 +41,25 @@ export const String = (props) => {
       <div className={style.status}>{status()}</div>
       <div className={style.executor}>{props.executorName}</div>
     </div>
+  );
+};
+
+export const StringWithNavigate = (props) => {
+  let navigate = useNavigate();
+  let preChange = (id) => {
+    getApplicationID(id);
+  };
+  return (
+    <String
+      navigate={navigate}
+      key={props.key}
+      prioritiesRgb={props.prioritiesRgb}
+      statusRgb={props.statusRgb}
+      id={props.id}
+      name={props.name}
+      statusName={props.statusName}
+      executorName={props.executorName}
+      preChange={preChange}
+    />
   );
 };

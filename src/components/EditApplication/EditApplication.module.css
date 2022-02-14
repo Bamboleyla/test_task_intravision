@@ -20,20 +20,32 @@
 }
 
 .id, .name, .close {
-    color: white;
     position: absolute;
 }
 
 .id {
     left: 36px;
     top: 23px;
+    font-size: 18px;
+    font-family: "Myriad Pro";
+    color: rgb(255, 255, 255);
+    line-height: 18px;
+    text-align: left;
 }
 
 .name {
-    max-width: 560px;
     top: 13px;
     left: 131px;
+    font-size: 16px;
+    font-family: "Roboto";
+    color: rgb(255, 255, 255);
+    line-height: 16px;
+    text-align: left;
+    position: absolute;
+    width: 560px;
+    height: 35px;
 }
+
 
 .close {
     right: 31px;
@@ -52,22 +64,38 @@
 }
 
 .discription {
+    font-size: 14px;
+    font-family: "Ubuntu";
+    color: rgb(159, 158, 167);
+    line-height: 14px;
+    text-align: left;
     margin-top: 28px;
 }
+
 
 .discription_text {
     margin-top: 54px;
     max-height: 128px;
     overflow: auto;
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(6, 6, 6);
+    line-height: 1.286;
+    text-align: left;
+    width: 651px;
 }
 
 .add_comment {
     margin-top: 191px;
+    font-size: 14px;
+    font-family: "Ubuntu";
+    color: rgb(159, 158, 167);
+    line-height: 14px;
 }
 
+
 .button {
-    color: #ffffff;
-    width: 160px;
+    width: 150px;
     height: 36px;
     border-radius: 20px;
     margin-top: 288px;
@@ -81,22 +109,257 @@
 .button p {
     margin: 0px;
     font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(255, 255, 255);
+    line-height: 1.614;
 }
 
+
 .discription_text {
-    color: black;
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(6, 6, 6);
+    line-height: 1.286;
+    text-align: left;
+    width: 548px;
+    height: 69px;
 }
 
 .comments {
     width: 239px;
+    position: absolute;
+    top: 428px;
+    left: 30px;
 }
 
-.user {}
+.user {
+    margin-left: 10px;
+    position: relative;
+}
 
 .avatar {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    border: 1px solid #9f9ea7;
-    box-sizing: border-box;
+    border: 1px solid rgb(197, 205, 211);
+    background-color: rgb(245, 245, 245);
+    position: absolute;
+    left: -2px;
+    top: 0px;
+}
+
+.info {
+    position: absolute;
+    top: 0px;
+    left: 82px;
+    width: 620px;
+}
+
+.user_name {
+    font-size: 14px;
+    font-family: "Ubuntu";
+    color: rgb(82, 84, 96);
+    line-height: 14px;
+    text-align: left;
+    margin-top: 11px;
+}
+
+.when {
+    font-size: 12px;
+    font-family: "CorporateACyr";
+    color: rgb(99, 103, 124);
+    line-height: 12px;
+    text-align: left;
+    margin-top: 12px;
+}
+
+.comment {
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(6, 6, 6);
+    line-height: 1.286;
+    text-align: left;
+}
+
+.wrapper {
+    margin-top: 18px;
+    border-radius: 5px;
+    background-color: rgb(227, 233, 244);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.right {
+    position: absolute;
+    left: 763px;
+    top: 88px;
+    width: 1600px;
+    height: 850px;
+    background-color: white;
+}
+
+.status {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 1600px;
+    height: 850px;
+}
+
+.status_name {
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(82, 84, 96);
+    line-height: 1.2;
+    text-align: left;
+    margin-left: 11px;
+}
+
+.circle {
+    border-radius: 50%;
+    background-color: rgb(255, 161, 97);
+    width: 11px;
+    height: 11px;
+    margin-top: 28px;
+    margin-left: 27px;
+    display: inline-block;
+}
+
+.applicant {
+    left: 28px;
+    top: 81px;
+    position: absolute;
+}
+
+.applicant_label {
+    font-size: 14px;
+    font-family: "Ubuntu";
+    color: rgb(160, 159, 168);
+    line-height: 14px;
+    text-align: left;
+}
+
+.applicant_name {
+    margin-top: 10px;
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(3, 3, 3);
+    line-height: 14px;
+    text-align: left;
+}
+
+.create {
+    position: absolute;
+    left: 28px;
+    top: 171px;
+}
+
+.author {
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(3, 3, 3);
+    line-height: 1.714;
+    text-align: left;
+}
+
+.create_label {
+    font-size: 14px;
+    font-family: "Ubuntu";
+    color: rgb(160, 159, 168);
+    line-height: 1.714;
+    text-align: left;
+}
+
+.executor {
+    position: absolute;
+    left: 28px;
+    top: 241px;
+}
+
+.executor_name {
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(25, 116, 210);
+    line-height: 1.714;
+    text-align: left;
+}
+
+.executor_label {
+    font-size: 14px;
+    font-family: "Ubuntu";
+    color: rgb(160, 159, 168);
+    line-height: 1.714;
+    text-align: left;
+}
+
+.priority {
+    position: absolute;
+    left: 28px;
+    top: 311px;
+}
+
+.priority_name {
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(3, 3, 3);
+    line-height: 1.714;
+    text-align: left;
+}
+
+.priority_label {
+    font-size: 14px;
+    font-family: "Ubuntu";
+    color: rgb(160, 159, 168);
+    line-height: 1.714;
+    text-align: left;
+}
+
+.term {
+    position: absolute;
+    left: 28px;
+    top: 381px;
+}
+
+.term_date {
+    font-size: 14px;
+    font-family: "Roboto";
+    color: rgb(3, 3, 3);
+    line-height: 1.714;
+    text-align: left;
+    display: inline-block;
+}
+
+.term_label {
+    font-size: 14px;
+    font-family: "Ubuntu";
+    color: rgb(160, 159, 168);
+    line-height: 1.714;
+    text-align: left;
+
+}
+
+.term_calendar {
+    display: inline-block;
+    margin-right: 7px;
+}
+
+.tags {
+    position: absolute;
+    left: 28px;
+    top: 456px;
+}
+
+.tags_one {
+    font-size: 12px;
+    font-family: "Roboto";
+    color: rgb(157, 161, 170);
+    line-height: 12px;
+    text-align: left;
+    border-width: 1px;
+    border-color: rgb(157, 161, 170);
+    border-style: solid;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    width: auto;
+    padding: 3px 10px;
+    text-align: center;
 }

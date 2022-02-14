@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Outlet, useNavigate } from "react-router";
 import { applicationsAPI } from "../../api/api";
 import { CreateNewApplication } from "./CreateNewApplication";
-import { createApplication } from "../../redux/applicationsReducer";
+import { getApplicationID } from "../../redux/editApplicationReducer";
 
 // Шаблон для отправки новой заявки через api
 let applicationTemplate = {
@@ -29,20 +29,16 @@ const CreateNewApplicationContainer = (props) => {
 
   const changeName = (text) => {
     setTextName(text);
-    debugger;
   }; //Вносит изменения в название заявки
   const changeDiscription = (text) => {
     setTextDiscription(text);
-    debugger;
   }; //Вносит изменения в описание заявки
   const send = () => {
     applicationTemplate.name = textName;
     applicationTemplate.description = textDiscription;
     setId(applicationsAPI.setNewApplication(applicationTemplate));
-    createApplication();
-    debugger;
+    getApplicationID(id);
     props.navigate("../edit", { replace: true });
-    debugger;
   };
 
   return (
