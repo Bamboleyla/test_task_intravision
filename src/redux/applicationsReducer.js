@@ -58,7 +58,6 @@ let getApplicationsAC = (applications) => ({ type: GET_APPLICATIONS, application
 export const getApplications = () => {
     //Возврашаем Thunk
     return (dispatch) => {
-        debugger;
         //Делаем запрос на сервер за массивом с приоритетами заявок
         applicationsAPI.getApplicationsPriorities().then((data) => {
             /* И диспачем его в state через метод getApplicationsAC */

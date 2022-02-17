@@ -4,7 +4,6 @@ import сalendar from "./сalendar.png";
 import { NavLink } from "react-router-dom";
 
 export const EditApplication = (props) => {
-  debugger;
   return (
     <div className={style.body_form}>
       <div className={style.header}>

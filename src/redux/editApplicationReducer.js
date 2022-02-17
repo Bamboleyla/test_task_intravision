@@ -1,6 +1,6 @@
 import { applicationsAPI } from "../api/api";
 
-const SET_APPLICATION = 'SET_APPLICATIONS';
+const SET_APPLICATION = 'SET_APPLICATION';
 
 let initialState = {
     /* Редактируемая заявка */
@@ -50,7 +50,6 @@ let initialState = {
 };
 
 export const editApplicationReducer = (state = initialState, action) => {
-    debugger;
     switch (action.type) {
         case 'SET_APPLICATION':
             return { ...state, edit: [...action.application] }
@@ -59,18 +58,20 @@ export const editApplicationReducer = (state = initialState, action) => {
 };
 
 /*****************************************************************************ACTION CREATORS*********************************************************************************************/
-let setApplicationsAC = (applications) => ({ type: SET_APPLICATION, applications })
+let setApplicationsAC = (application) => ({ type: SET_APPLICATION, application })
 /*****************************************************************************THUNKS-CREATOR***********************************************************************************************/
 //Получение заявки по id
-export const getApplicationID = (numID) => {
-    debugger;
+export const getApplicationID = (pattern) => {
     //Возврашаем Thunk
     return (dispatch) => {
-        //Делаем запрос на сервер за массивом с заявками
-        applicationsAPI.getApplication(numID).then((data) => {
-            debugger;
-            /* И диспачем его в state через метод getApplicationsAC */
-            dispatch(setApplicationsAC(data.value));
-        });
+        applicationsAPI.setNewApplication(pattern).then((req) => {
+            //Делаем запрос на сервер за массивом с заявками
+            applicationsAPI.getApplication(req).then((data) => {
+                /* И диспачем его в state через метод getApplicationsAC */
+                debugger;
+                dispatch(setApplicationsAC(data));
+            });
+        })
+
     }
 }

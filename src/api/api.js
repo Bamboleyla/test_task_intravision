@@ -15,7 +15,6 @@ export const applicationsAPI = {
     },
     //Получение приоритетов по заявкам
     getApplicationsPriorities() {
-        debugger
         return instance.get(`/api/${TENANTGUID}/Priorities`).then(response => response.data)
     },
     //Отправка новой заявки
@@ -24,7 +23,6 @@ export const applicationsAPI = {
     },
     //Получение заявки по id
     getApplication(id) {
-        debugger;
         return instance.get(`/api/${TENANTGUID}/Tasks/${id}`).then(response => response.data)
     },
 }

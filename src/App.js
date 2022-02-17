@@ -11,8 +11,8 @@ import {
   Routes,
   Route
 } from "react-router-dom"
-import { CreateNewApplicationWithNavigate } from './components/CreateNewApplication/CreateNewApplicationContainer';
 import { EditApplicationContainer } from './components/EditApplication/EditApplicationContainer';
+import { CreateApplicationContainer } from './components/CreateApplication/CreateApplicationContainer';
 
 export const App = () => {
 
@@ -27,7 +27,7 @@ export const App = () => {
           <Routes>
             < Route path='knowledgebase' element={< KnowledgeBase />} /> {/* База знаний*/}
             < Route path='applications' element={< ApplicationsContainer />} > {/* Заявки */}
-              < Route path='create' element={< CreateNewApplicationWithNavigate />} /> {/* Создать заявку */}
+              < Route path='create' element={< CreateApplicationContainer />} /> {/* Создать заявку */}
               < Route path='edit' element={< EditApplicationContainer />} /> {/* Редактировать заявку */}
             </Route>
             < Route path='assets' element={< Assets />} /> {/* Активы */}
