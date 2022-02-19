@@ -3,8 +3,9 @@ import { EditApplication } from "./EditApplication";
 
 //Создаем функцию которая будет принимать через connect нужную часть state
 let mapStateToProps = (state) => {
+  debugger;
   return {
-    editApplication: state.applicationEdit.edit[0],
+    editApplication: state.applicationEdit,
   };
 };
 

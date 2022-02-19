@@ -8,36 +8,36 @@ let initialState = {
     /* Заявки */
     applications: [
         {
-            id: 193710,
-            name: 'Заказать обед',
-            description: '<p style=\color: #e5e5e5;\>Уха</p> из трех видов рыб. Салат с телятиной. МОРС КЛЮКВЕННЫЙ',
-            createdAt: '2022-02-07T07:34:08.2275098+03:00',
-            updatedAt: '2022-02-07T07:34:08.2275098+03:00',
-            price: 100.0,
-            taskTypeId: 70630,
-            taskTypeName: 'Стандартный',
-            statusId: 121260,
-            statusName: 'Открыта',
-            statusRgb: '#fd5e53',
-            priorityId: 104383,
-            priorityName: 'Средний',
-            serviceId: 70629,
-            serviceName: 'Еда > Заказ обедов',
-            resolutionDatePlan: '2022-02-07T07:34:08.2275098+03:00',
-            initiatorId: 70631,
-            initiatorName: 'Иванов Андрей',
-            executorId: 70630,
-            executorName: 'Петров Борис',
-            executorGroupId: 70629,
-            executorGroupName: 'Офис менеджеры',
-            tags: [
+            'id': 193710,
+            'name': 'Заказать обед',
+            'description': '<p style=\color: #e5e5e5;\>Уха</p> из трех видов рыб. Салат с телятиной. МОРС КЛЮКВЕННЫЙ',
+            'createdAt': '2022-02-07T07:34:08.2275098+03:00',
+            'updatedAt': '2022-02-07T07:34:08.2275098+03:00',
+            'price': 100.0,
+            'taskTypeId': 70630,
+            'taskTypeName': 'Стандартный',
+            'statusId': 121260,
+            'statusName': 'Открыта',
+            'statusRgb': '#fd5e53',
+            'priorityId': 104383,
+            'priorityName': 'Средний',
+            'serviceId': 70629,
+            'serviceName': 'Еда > Заказ обедов',
+            'resolutionDatePlan': '2022-02-07T07:34:08.2275098+03:00',
+            'initiatorId': 70631,
+            'initiatorName': 'Иванов Андрей',
+            'executorId': 70630,
+            'executorName': 'Петров Борис',
+            'executorGroupId': 70629,
+            'executorGroupName': 'Офис менеджеры',
+            'tags': [
                 {
-                    id: 104382,
-                    name: 'Салат'
+                    'id': 104382,
+                    'name': 'Салат'
                 },
                 {
-                    id: 104381,
-                    name: 'Суп'
+                    'id': 104381,
+                    'name': 'Суп'
                 }
             ]
         }

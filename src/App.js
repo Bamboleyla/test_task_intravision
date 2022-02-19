@@ -29,6 +29,7 @@ export const App = () => {
             < Route path='applications' element={< ApplicationsContainer />} > {/* Заявки */}
               < Route path='create' element={< CreateApplicationContainer />} /> {/* Создать заявку */}
               < Route path='edit' element={< EditApplicationContainer />} /> {/* Редактировать заявку */}
+              < Route path='create/edit' element={< EditApplicationContainer />} /> {/* Редактировать заявку */}
             </Route>
             < Route path='assets' element={< Assets />} /> {/* Активы */}
             < Route path='clients' element={< Clients />} /> {/* Клиенты */}

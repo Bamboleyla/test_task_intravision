@@ -28,10 +28,8 @@ export let setApplicationsPrioritiesAC = (priorities) => ({ type: SET_PRIORITIES
 /*****************************************************************************THUNKS-CREATOR***********************************************************************************************/
 //Получение списка заявок
 export const getPriorities = () => {
-    debugger;
     //Возврашаем Thunk
     return (dispatch) => {
-        debugger;
         //Делаем запрос на сервер за массивом с приоритетами заявок
         applicationsAPI.getApplicationsPriorities().then((data) => {
             /* И диспачем его в state через метод getApplicationsAC */

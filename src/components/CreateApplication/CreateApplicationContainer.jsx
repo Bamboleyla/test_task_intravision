@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import React from "react";
 import { getApplicationID } from "../../redux/editApplicationReducer";
-import { Outlet } from "react-router";
+import { Outlet, useNavigate } from "react-router";
 import { CreateNewApplication } from "../CreateNewApplication/CreateNewApplication";
 
 // Шаблон для отправки новой заявки через api
@@ -19,6 +19,20 @@ let applicationTemplate = {
   initiatorId: 0,
   executorId: 0,
   executorGroupId: 0,
+};
+const AddNavigate = (props) => {
+  let navigate = useNavigate();
+  let changeUrl = () => {
+    navigate("../edit", { replace: true });
+  };
+  return (
+    <CreateNewApplication
+      name={props.name}
+      discription={props.description}
+      send={props.send}
+      navigate={changeUrl}
+    />
+  );
 };
 
 /*************************Контейнерная компонента*****************************/
@@ -46,6 +60,7 @@ class BlockNewApplicationsAPI extends React.Component {
   send = () => {
     applicationTemplate.name = this.state.name;
     applicationTemplate.description = this.state.discription;
+    debugger;
     this.props.getApplicationID(applicationTemplate);
   };
 
@@ -53,7 +68,7 @@ class BlockNewApplicationsAPI extends React.Component {
     return (
       <div>
         <Outlet />
-        <CreateNewApplication
+        <AddNavigate
           name={this.changeName}
           discription={this.changeDiscription}
           send={this.send}
