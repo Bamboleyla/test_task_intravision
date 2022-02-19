@@ -2,8 +2,14 @@ import style from "./EditApplication.module.css";
 import close from "./close.png";
 import сalendar from "./сalendar.png";
 import { NavLink } from "react-router-dom";
+import React from "react";
+
+//Создаем ссылки для получения данных введенные пользователем
+let commentValue = React.createRef(); //Для названия заявки
+let discriptionValue = React.createRef(); //Для описания заявки
 
 export const EditApplication = (props) => {
+  debugger;
   return (
     <div className={style.body_form}>
       <div className={style.header}>
@@ -19,16 +25,19 @@ export const EditApplication = (props) => {
       </div>
       <div className={style.content}>
         <p className={style.discription}>Описание</p>
-        <p className={style.discription_text}>
-          {props.editApplication.description}
-        </p>
+        <textarea
+          className={style.discription_text}
+          ref={discriptionValue}
+          value={props.editApplication.description}></textarea>
         <p className={style.add_comment}>Добавление комментариев</p>
-        <p></p>
+        <textarea className={style.comment_text} ref={commentValue}>
+          {" "}
+        </textarea>
         <div className={style.button}>
           <p>Сохранить</p>
         </div>
       </div>
-      {/* <div className={style.comments}>
+      <div className={style.comments}>
         <div className={style.user}>
           <div className={style.avatar}></div>
           <div className={style.info}>
@@ -47,7 +56,7 @@ export const EditApplication = (props) => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
       <div className={style.right}>
         <div className={style.status}>
           <div className={style.circle}></div>

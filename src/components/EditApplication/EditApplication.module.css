@@ -15,8 +15,15 @@
 
 .content, .info {
     display: inline-block;
-    height: 1080px;
     background-color: white;
+}
+
+.info {
+    height: 712px;
+}
+
+.content {
+    height: 1070px;
 }
 
 .id, .name, .close {
@@ -72,25 +79,37 @@
     margin-top: 28px;
 }
 
-
-.discription_text {
-    margin-top: 54px;
-    max-height: 128px;
+textarea {
     overflow: auto;
     font-size: 14px;
     font-family: "Roboto";
     color: rgb(6, 6, 6);
     line-height: 1.286;
     text-align: left;
+    margin-left: 34px;
+    border: none;
+    min-height: 87px;
+}
+
+.discription_text {
+    margin-top: 57px;
+    max-height: 128px;
+    width: 651px;
+}
+
+.comment_text {
+    margin-top: 72px;
+    max-height: 128px;
     width: 651px;
 }
 
 .add_comment {
-    margin-top: 191px;
+    margin-top: 40px;
     font-size: 14px;
     font-family: "Ubuntu";
     color: rgb(159, 158, 167);
     line-height: 14px;
+    position: absolute;
 }
 
 
@@ -98,7 +117,7 @@
     width: 150px;
     height: 36px;
     border-radius: 20px;
-    margin-top: 288px;
+    margin-top: 2px;
     background-color: #008cf0;
     margin-left: 34px;
     box-sizing: border-box;
@@ -116,13 +135,13 @@
 
 
 .discription_text {
-    font-size: 14px;
-    font-family: "Roboto";
     color: rgb(6, 6, 6);
     line-height: 1.286;
     text-align: left;
     width: 548px;
-    height: 69px;
+    height: 87px;
+    border: none;
+    margin-left: 34px;
 }
 
 .comments {
@@ -145,7 +164,7 @@
     background-color: rgb(245, 245, 245);
     position: absolute;
     left: -2px;
-    top: 0px;
+    top: 34px;
 }
 
 .info {
@@ -161,7 +180,7 @@
     color: rgb(82, 84, 96);
     line-height: 14px;
     text-align: left;
-    margin-top: 11px;
+    margin-top: 55px;
 }
 
 .when {
@@ -192,7 +211,7 @@
     position: absolute;
     left: 763px;
     top: 88px;
-    width: 1600px;
+    width: 210px;
     height: 850px;
     background-color: white;
 }
@@ -201,7 +220,7 @@
     position: absolute;
     left: 0px;
     top: 0px;
-    width: 1600px;
+    width: 210px;
     height: 850px;
 }
 

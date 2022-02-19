@@ -49,7 +49,6 @@ export const editApplicationReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'SET_APPLICATION':
             state = action.data
-            debugger;
             return state;
         default: return state;
     }
@@ -66,7 +65,6 @@ export const getApplicationID = (pattern) => {
         applicationsAPI.setNewApplication(pattern).then((req) => {
             //Делаем запрос на сервер за массивом с заявками
             applicationsAPI.getApplication(req).then((data) => {
-                debugger;
                 /* И диспачем его в state через метод getApplicationsAC */
                 dispatch(setApplicationsAC(data));
             });

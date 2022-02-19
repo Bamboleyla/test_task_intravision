@@ -60,7 +60,6 @@ class BlockNewApplicationsAPI extends React.Component {
   send = () => {
     applicationTemplate.name = this.state.name;
     applicationTemplate.description = this.state.discription;
-    debugger;
     this.props.getApplicationID(applicationTemplate);
   };
 
