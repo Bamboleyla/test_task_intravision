@@ -4,12 +4,12 @@ import style from "./CreateNewApplication.module.css";
 
 //Создаем ссылки для получения данных введенные пользователем
 let nameValue = React.createRef(); //Для названия заявки
-let discriptionValue = React.createRef(); //Для описания заявки
+let descriptionValue = React.createRef(); //Для описания заявки
 
 export const CreateNewApplication = (props) => {
   //Отправка данных в local state
   let sendName = () => props.name(nameValue.current.value); //текст названия
-  let sendDiscription = () => props.discription(discriptionValue.current.value); //текст описания
+  let sendDescription = () => props.description(descriptionValue.current.value); //текст описания
   return (
     <div className={style.bodyForm}>
       <div className={style.head}>
@@ -25,14 +25,14 @@ export const CreateNewApplication = (props) => {
             ref={nameValue}
             onChange={sendName}></textarea>
         </div>
-        <div className={style.discription}>
+        <div className={style.description}>
           <p>Описание</p>
           {/* Поле описания заявки */}
           <textarea
-            name="discription"
-            id="discriptionApplication"
-            ref={discriptionValue}
-            onChange={sendDiscription}></textarea>
+            name="description"
+            id="descriptionApplication"
+            ref={descriptionValue}
+            onChange={sendDescription}></textarea>
         </div>
         {/* Кновка сохранить */}
         <NavLink to="edit">

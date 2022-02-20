@@ -26,13 +26,13 @@
     margin-top: 55px;
 }
 
-.name textarea, .discription textarea {
+.name textarea, .description textarea {
     width: 625px;
     border: none;
     border-radius: 5px;
 }
 
-.name p, .discription p {
+.name p, .description p {
     margin-left: 5px;
     color: #9f9ea7;
 }
@@ -42,7 +42,7 @@
     margin-top: 14px;
 }
 
-.discription textarea {
+.description textarea {
     height: 134px;
     margin-top: 16px;
 }

@@ -28,7 +28,7 @@ const AddNavigate = (props) => {
   return (
     <CreateNewApplication
       name={props.name}
-      discription={props.description}
+      description={props.description}
       send={props.send}
       navigate={changeUrl}
     />
@@ -42,7 +42,7 @@ class BlockNewApplicationsAPI extends React.Component {
     /* Создаем локальный state в котором будем хранить вводимое значение пользователя */
     this.state = {
       name: "",
-      discription: "",
+      description: "",
     };
   }
   //Вносит изменения в название заявки
@@ -52,14 +52,16 @@ class BlockNewApplicationsAPI extends React.Component {
     });
   };
   //Вносит изменения в описание заявки
-  changeDiscription = (text) => {
+  changeDescription = (text) => {
+    debugger;
     this.setState({
-      discription: text,
+      description: text,
     });
   };
   send = () => {
     applicationTemplate.name = this.state.name;
-    applicationTemplate.description = this.state.discription;
+    applicationTemplate.description = this.state.description;
+    debugger;
     this.props.getApplicationID(applicationTemplate);
   };
 
@@ -69,7 +71,7 @@ class BlockNewApplicationsAPI extends React.Component {
         <Outlet />
         <AddNavigate
           name={this.changeName}
-          discription={this.changeDiscription}
+          description={this.changeDescription}
           send={this.send}
         />
       </div>
