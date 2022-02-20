@@ -52,7 +52,7 @@ export const applicationsReducer = (state = initialState, action) => {
     }
 };
 /*****************************************************************************ACTION CREATORS*********************************************************************************************/
-let getApplicationsAC = (applications) => ({ type: GET_APPLICATIONS, applications })
+export let getApplicationsAC = (applications) => ({ type: GET_APPLICATIONS, applications })
 /*****************************************************************************THUNKS-CREATOR***********************************************************************************************/
 //Получение списка заявок
 export const getApplications = () => async (dispatch) => {

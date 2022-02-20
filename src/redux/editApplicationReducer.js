@@ -1,4 +1,5 @@
 import { applicationsAPI } from "../api/api";
+import { getApplicationsAC } from "./applicationsReducer";
 
 const SET_APPLICATION = 'SET_APPLICATION';
 
@@ -59,16 +60,14 @@ let setApplicationsAC = (data) => ({ type: SET_APPLICATION, data })
 /*****************************************************************************THUNKS-CREATOR***********************************************************************************************/
 
 //Получение заявки по id
-export const getApplicationID = (pattern) => {
+export const getApplicationID = (pattern) => async (dispatch) => {
     //Возврашаем Thunk
-    return (dispatch) => {
-        applicationsAPI.setNewApplication(pattern).then((req) => {
-            //Делаем запрос на сервер за массивом с заявками
-            applicationsAPI.getApplication(req).then((data) => {
-                /* И диспачем его в state через метод getApplicationsAC */
-                dispatch(setApplicationsAC(data));
-            });
-        })
-
-    }
+    const idApplication = await applicationsAPI.setNewApplication(pattern)
+    //Делаем запрос на сервер за массивом с заявками
+    const Application = await applicationsAPI.getApplication(idApplication)
+    /* И диспачем его в state через метод getApplicationsAC */
+    debugger;
+    dispatch(setApplicationsAC(Application));
+    const ApplicationsList = await applicationsAPI.getApplications();
+    dispatch(getApplicationsAC(ApplicationsList.value));
 }
