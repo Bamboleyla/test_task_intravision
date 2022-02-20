@@ -1,7 +1,11 @@
 import { App } from "./App"
-import React from "react";
+import { connect } from "react-redux";
+import { getApplications } from './redux/applicationsReducer'
+import { getStatuses } from './redux/applicationsStatusesReducer'
 
-export const AppContainer = () => {
-  return <App />
-}
+
+export const AppContainer = connect(
+  null, { getApplications, getStatuses }
+)(App);
+
 

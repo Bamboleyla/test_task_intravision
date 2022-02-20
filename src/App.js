@@ -13,31 +13,42 @@ import {
 } from "react-router-dom"
 import { EditApplicationContainer } from './components/EditApplication/EditApplicationContainer';
 import { CreateApplicationContainer } from './components/CreateApplication/CreateApplicationContainer';
+import React from "react";
 
-export const App = () => {
+export class App extends React.Component {
+  /* Вызываем метод жизненного цикла компонента */
+  componentDidMount() {
+    //Получаем массив с заявками и приоритетами
+    this.props.getApplications();
+    //Получаем массив с статусами заявок
+    this.props.getStatuses();
+  }
 
-  return (
-    <div className='display'>
-      <div className="App">
-        {/* Верхний блок с поиском */}
-        <Header />
-        {/* Левая боковая понель с кнопками навигации */}
-        <Navigation />
-        < div className='content' >
-          <Routes>
-            < Route path='knowledgebase' element={< KnowledgeBase />} /> {/* База знаний*/}
-            < Route path='applications' element={< ApplicationsContainer />} > {/* Заявки */}
-              < Route path='create' element={< CreateApplicationContainer />} /> {/* Создать заявку */}
-              < Route path='edit' element={< EditApplicationContainer />} /> {/* Редактировать заявку */}
-              < Route path='create/edit' element={< EditApplicationContainer />} /> {/* Редактировать заявку */}
-            </Route>
-            < Route path='assets' element={< Assets />} /> {/* Активы */}
-            < Route path='clients' element={< Clients />} /> {/* Клиенты */}
-            < Route path='employees' element={< Employees />} /> {/* Сотрудники */}
-            < Route path='settings' element={< Settings />} /> {/* Настройки */}
-          </Routes>
-        </div>
-      </div >
-    </div>
-  );
+  render() {
+    return (
+      <div className='display'>
+        <div className="App">
+          {/* Верхний блок с поиском */}
+          <Header />
+          {/* Левая боковая понель с кнопками навигации */}
+          <Navigation />
+          < div className='content' >
+            {/* Роуты */}
+            <Routes>
+              < Route path='knowledgebase' element={< KnowledgeBase />} /> {/* База знаний*/}
+              < Route path='applications' element={< ApplicationsContainer />} > {/* Заявки */}
+                < Route path='create' element={< CreateApplicationContainer />} /> {/* Создать заявку */}
+                < Route path='edit' element={< EditApplicationContainer />} /> {/* Редактировать заявку */}
+                < Route path='create/edit' element={< EditApplicationContainer />} /> {/* Редактировать заявку */}
+              </Route>
+              < Route path='assets' element={< Assets />} /> {/* Активы */}
+              < Route path='clients' element={< Clients />} /> {/* Клиенты */}
+              < Route path='employees' element={< Employees />} /> {/* Сотрудники */}
+              < Route path='settings' element={< Settings />} /> {/* Настройки */}
+            </Routes>
+          </div>
+        </div >
+      </div>
+    );
+  }
 };

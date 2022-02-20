@@ -55,18 +55,9 @@ export const applicationsReducer = (state = initialState, action) => {
 let getApplicationsAC = (applications) => ({ type: GET_APPLICATIONS, applications })
 /*****************************************************************************THUNKS-CREATOR***********************************************************************************************/
 //Получение списка заявок
-export const getApplications = () => {
-    //Возврашаем Thunk
-    return (dispatch) => {
-        //Делаем запрос на сервер за массивом с приоритетами заявок
-        applicationsAPI.getApplicationsPriorities().then((data) => {
-            /* И диспачем его в state через метод getApplicationsAC */
-            dispatch(setApplicationsPrioritiesAC(data));
-        });
-        //Делаем запрос на сервер за массивом с заявками
-        applicationsAPI.getApplications().then((data) => {
-            /* И диспачем его в state через метод getApplicationsAC */
-            dispatch(getApplicationsAC(data.value));
-        });
-    }
-}
+export const getApplications = () => async (dispatch) => {
+    const preopities = await applicationsAPI.getApplicationsPriorities();
+    dispatch(setApplicationsPrioritiesAC(preopities))
+    const applications = await applicationsAPI.getApplications();
+    dispatch(getApplicationsAC(applications.value));
+};

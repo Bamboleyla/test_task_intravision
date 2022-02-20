@@ -5,11 +5,6 @@ import React from "react";
 
 /*************************Контейнерная компонента*****************************/
 class BlockApplicationsAPI extends React.Component {
-  /* Вызываем метод жизненного цикла компонента */
-  componentDidMount() {
-    //Получаем массив с заявками
-    this.props.getApplications();
-  }
   render() {
     return (
       <Applications
