@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router";
-import { getApplicationID } from "../../redux/editApplicationReducer";
 import style from "./String.module.css";
 
 const String = (props) => {
@@ -28,7 +27,7 @@ const String = (props) => {
   };
   /* Обработчик события onClick, меняем url */
   let changeUrl = () => {
-    props.preChange(props.id);
+    props.getApplication(props.id);
     props.navigate("../applications/edit", { replace: true });
   };
   return (
@@ -46,9 +45,6 @@ const String = (props) => {
 
 export const StringWithNavigate = (props) => {
   let navigate = useNavigate();
-  let preChange = (id) => {
-    getApplicationID(id);
-  };
   return (
     <String
       navigate={navigate}
@@ -59,7 +55,7 @@ export const StringWithNavigate = (props) => {
       name={props.name}
       statusName={props.statusName}
       executorName={props.executorName}
-      preChange={preChange}
+      getApplication={props.getApplication}
     />
   );
 };

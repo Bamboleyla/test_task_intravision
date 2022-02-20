@@ -56,7 +56,7 @@ export const editApplicationReducer = (state = initialState, action) => {
 };
 
 /*****************************************************************************ACTION CREATORS*********************************************************************************************/
-let setApplicationsAC = (data) => ({ type: SET_APPLICATION, data })
+export let setApplicationsAC = (data) => ({ type: SET_APPLICATION, data })
 /*****************************************************************************THUNKS-CREATOR***********************************************************************************************/
 
 //Получение заявки по id

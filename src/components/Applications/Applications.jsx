@@ -38,6 +38,7 @@ export const Applications = (props) => {
             /* Строки таблицы */
             <StringWithNavigate
               key={a.id}
+              getApplication={props.getApplication}
               prioritiesRgb={
                 findPrioriti(a.priorityId) === undefined
                   ? undefined
