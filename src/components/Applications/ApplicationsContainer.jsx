@@ -7,7 +7,6 @@ import { setApplicationsAC } from "../../redux/editApplicationReducer";
 class BlockApplicationsAPI extends React.Component {
   getApplicationWithID = (id) => {
     let application = this.props.applicationsList.find((el) => el.id === id);
-    debugger;
     this.props.setEditApplication(application);
   };
   render() {

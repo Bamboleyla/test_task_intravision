@@ -30,9 +30,7 @@ export const EditApplication = (props) => {
           ref={discriptionValue}
           value={props.editApplication.description}></textarea>
         <p className={style.add_comment}>Добавление комментариев</p>
-        <textarea className={style.comment_text} ref={commentValue}>
-          {" "}
-        </textarea>
+        <textarea className={style.comment_text} ref={commentValue}></textarea>
         <div className={style.button}>
           <p>Сохранить</p>
         </div>
@@ -59,7 +57,11 @@ export const EditApplication = (props) => {
       </div>
       <div className={style.right}>
         <div className={style.status}>
-          <div className={style.circle}></div>
+          <div
+            className={style.circle}
+            style={{
+              backgroundColor: props.editApplication.statusRgb,
+            }}></div>
           <span className={style.status_name}>
             {props.editApplication.statusName}
           </span>
