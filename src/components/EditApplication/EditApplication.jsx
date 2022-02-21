@@ -2,7 +2,8 @@ import style from "./EditApplication.module.css";
 import close from "./close.png";
 import сalendar from "./сalendar.png";
 import { NavLink } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
+import { Comments } from "../Comments/Comments";
 
 //Создаем ссылки для получения данных введенные пользователем
 let commentValue = React.createRef(); //Для названия заявки
@@ -10,6 +11,15 @@ let discriptionValue = React.createRef(); //Для описания заявки
 
 export const EditApplication = (props) => {
   debugger;
+  //Использование хука useState
+  let [comment, setComment] = useState(props.status);
+
+  let addTextComment = () => setComment(commentValue.current.value);
+  let send = () => {
+    props.addComment(props.editApplication.id, comment);
+    props.setComment(comment);
+    setComment("");
+  };
   return (
     <div className={style.body_form}>
       <div className={style.header}>
@@ -24,38 +34,36 @@ export const EditApplication = (props) => {
         </div>
       </div>
       <div className={style.content}>
+        {/* Поле с описанием */}
         <p className={style.discription}>Описание</p>
         <textarea
           className={style.discription_text}
           ref={discriptionValue}
           value={props.editApplication.description}></textarea>
+        {/* Поле ввода комментариев */}
         <p className={style.add_comment}>Добавление комментариев</p>
-        <textarea className={style.comment_text} ref={commentValue}></textarea>
-        <div className={style.button}>
+        <textarea
+          className={style.comment_text}
+          ref={commentValue}
+          onChange={addTextComment}
+          value={comment}></textarea>
+        {/* Кнопка Сохнанить */}
+        <div className={style.button} onClick={send}>
           <p>Сохранить</p>
         </div>
       </div>
+      {/* Блок комментариев */}
       <div className={style.comments}>
-        <div className={style.user}>
-          <div className={style.avatar}></div>
-          <div className={style.info}>
-            <p className={style.user_name}>Иванов Александр</p>
-            <p className={style.when}>12 августаб 10:00 прокоментировал</p>
-            <div className={style.wrapper}>
-              <div className={style.comment}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Praesentium rem ratione, doloribus asperiores sit incidunt
-                sapiente iste. Odio eius ea quibusdam eligendi necessitatibus
-                labore nihil fugiat quo ullam repellendus minus voluptates saepe
-                explicabo laudantium modi a ut consequuntur, quidem perspiciatis
-                nesciunt ex, nobis obcaecati? Quasi, sequi! Harum voluptatem
-                nobis fugit.
-              </div>
-            </div>
-          </div>
-        </div>
+        {props.editApplication.comment === undefined
+          ? null
+          : props.editApplication.comment.map((a) => (
+              /* Комментарий */
+              <Comments text={a} key={a.toString()} />
+            ))}
       </div>
+      {/* Информационная понель справа */}
       <div className={style.right}>
+        {/* Статус */}
         <div className={style.status}>
           <div
             className={style.circle}
@@ -66,26 +74,31 @@ export const EditApplication = (props) => {
             {props.editApplication.statusName}
           </span>
         </div>
+        {/* Заявитель */}
         <div className={style.applicant}>
           <p className={style.applicant_label}>Заявитель</p>
           <p className={style.applicant_name}>Александр Вознесенский</p>
         </div>
+        {/* Создатель */}
         <div className={style.create}>
           <p className={style.create_label}>Создана</p>
           <p className={style.author}>{props.editApplication.initiatorName}</p>
         </div>
+        {/* Испольнитель */}
         <div className={style.executor}>
           <p className={style.executor_label}>Исполнитель</p>
           <p className={style.executor_name}>
             {props.editApplication.executorName}
           </p>
         </div>
+        {/* Приоритет */}
         <div className={style.priority}>
           <p className={style.priority_label}>Приоритет</p>
           <p className={style.priority_name}>
             {props.editApplication.priorityName}
           </p>
         </div>
+        {/* Срок */}
         <div className={style.term}>
           <p className={style.term_label}>Срок</p>
           <div className={style.term_calendar}>
@@ -95,6 +108,7 @@ export const EditApplication = (props) => {
             {props.editApplication.resolutionDatePlan.slice(0, 10)}
           </div>
         </div>
+        {/* Теги */}
         <div className={style.tags}>
           <div className={style.tags_one}>
             {props.editApplication.tags[0].name}

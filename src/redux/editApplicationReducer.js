@@ -2,6 +2,7 @@ import { applicationsAPI } from "../api/api";
 import { getApplicationsAC } from "./applicationsReducer";
 
 const SET_APPLICATION = 'SET_APPLICATION';
+const ADD_COMMENT = 'ADD_COMMENT';
 
 let initialState = {
     'id': 194722,
@@ -47,9 +48,18 @@ let initialState = {
 };
 
 export const editApplicationReducer = (state = initialState, action) => {
+    debugger;
     switch (action.type) {
         case 'SET_APPLICATION':
             state = action.data
+            return state;
+        case 'ADD_COMMENT':
+            if (state.comment === undefined) {
+                state.comment = [];
+                state.comment.push(action.data)
+            }
+            else state.comment.push(action.data)
+
             return state;
         default: return state;
     }
@@ -57,6 +67,8 @@ export const editApplicationReducer = (state = initialState, action) => {
 
 /*****************************************************************************ACTION CREATORS*********************************************************************************************/
 export let setApplicationsAC = (data) => ({ type: SET_APPLICATION, data })
+export let addCommentPropertyAC = (data) => ({ type: ADD_COMMENT, data })
+
 /*****************************************************************************THUNKS-CREATOR***********************************************************************************************/
 
 //Получение заявки по id
@@ -66,7 +78,6 @@ export const getApplicationID = (pattern) => async (dispatch) => {
     //Делаем запрос на сервер за массивом с заявками
     const Application = await applicationsAPI.getApplication(idApplication)
     /* И диспачем его в state через метод getApplicationsAC */
-    debugger;
     dispatch(setApplicationsAC(Application));
     const ApplicationsList = await applicationsAPI.getApplications();
     dispatch(getApplicationsAC(ApplicationsList.value));

@@ -2,6 +2,7 @@ import { applicationsAPI } from "../api/api";
 import { setApplicationsPrioritiesAC } from "./applicationsPrioritiesReducer ";
 
 const GET_APPLICATIONS = 'GET_APPLICATIONS';
+const SAVE_COMMENT = 'SAVE_COMMENT';
 
 //Инициализационный state
 let initialState = {
@@ -45,14 +46,27 @@ let initialState = {
 };
 
 export const applicationsReducer = (state = initialState, action) => {
+    debugger;
     switch (action.type) {
         case 'GET_APPLICATIONS':
             return { ...state, applications: [...action.applications] }
+        case 'SAVE_COMMENT':
+            for (let i = 0; i < state.applications.length; i++) {
+                debugger;
+                if (state.applications[i].id === action.id) {
+                    state.applications[i].comment === undefined ?
+                        state.applications[i].comment = action.comment :
+                        state.applications[i].comment.push(action.comment);
+                    return
+                }
+            }
+            return state;
         default: return state;
     }
 };
 /*****************************************************************************ACTION CREATORS*********************************************************************************************/
 export let getApplicationsAC = (applications) => ({ type: GET_APPLICATIONS, applications })
+let addCommentAC = (id, text) => ({ type: SAVE_COMMENT, id, text })
 /*****************************************************************************THUNKS-CREATOR***********************************************************************************************/
 //Получение списка заявок
 export const getApplications = () => async (dispatch) => {
@@ -60,4 +74,10 @@ export const getApplications = () => async (dispatch) => {
     dispatch(setApplicationsPrioritiesAC(preopities))
     const applications = await applicationsAPI.getApplications();
     dispatch(getApplicationsAC(applications.value));
-};
+}
+
+export const addComment = (id, text) => {
+    return (dispatch) => {
+        dispatch(addCommentAC(id, text))
+    }
+}
