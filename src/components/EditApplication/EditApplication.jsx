@@ -4,6 +4,7 @@ import сalendar from "./сalendar.png";
 import { NavLink } from "react-router-dom";
 import React, { useState } from "react";
 import { Comments } from "../Comments/Comments";
+import { Status } from "./Status/Status";
 
 //Создаем ссылки для получения данных введенные пользователем
 let commentValue = React.createRef(); //Для названия заявки
@@ -71,7 +72,11 @@ export const EditApplication = (props) => {
               backgroundColor: props.editApplication.statusRgb,
             }}></div>
           <span className={style.status_name}>
-            {props.editApplication.statusName}
+            {/* {props.editApplication.statusName} */}
+            <Status
+              status={props.editApplication.statusName}
+              statusList={props.statusList}
+            />
           </span>
         </div>
         {/* Заявитель */}

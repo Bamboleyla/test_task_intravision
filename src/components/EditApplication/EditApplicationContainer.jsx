@@ -7,6 +7,7 @@ import { EditApplication } from "./EditApplication";
 let mapStateToProps = (state) => {
   return {
     editApplication: state.applicationEdit,
+    statusList: state.applicationsStatuses,
   };
 };
 let mapDispathToProps = (dispatch) => {
