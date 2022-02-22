@@ -1,5 +1,4 @@
 import { applicationsAPI } from "../api/api";
-//На всякий случай создадим свой dispatch на тот случай если вызов THUNK-CREATOR будет производится из компоненты находящаяся вне connect
 
 const SET_PRIORITIES = 'SET_PRIORITIES';
 

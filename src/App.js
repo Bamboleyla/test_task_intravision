@@ -22,6 +22,8 @@ export class App extends React.Component {
     this.props.getApplications();
     //Получаем массив с статусами заявок
     this.props.getStatuses();
+    //Получаем список пользователей
+    this.props.getUsers();
   }
 
   render() {

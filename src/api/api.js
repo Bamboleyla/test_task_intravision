@@ -25,8 +25,12 @@ export const applicationsAPI = {
     getApplication(id) {
         return instance.get(`/api/${TENANTGUID}/Tasks/${id}`).then(response => response.data)
     },
-    //Получение заявки по id
+    //Получение списка статусов
     getApplicationsStatuses() {
         return instance.get(`/api/${TENANTGUID}/Tags`).then(response => response.data)
+    },
+    //Получение списка пользователей
+    getUsers() {
+        return instance.get(`/api/${TENANTGUID}/Users`).then(response => response.data)
     },
 }

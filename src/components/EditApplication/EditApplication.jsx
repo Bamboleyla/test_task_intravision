@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import React, { useState } from "react";
 import { Comments } from "../Comments/Comments";
 import { Status } from "./Status/Status";
+import { Executor } from "../Comments/Executor/Executor";
 
 //Создаем ссылки для получения данных введенные пользователем
 let commentValue = React.createRef(); //Для названия заявки
@@ -72,7 +73,6 @@ export const EditApplication = (props) => {
               backgroundColor: props.editApplication.statusRgb,
             }}></div>
           <span className={style.status_name}>
-            {/* {props.editApplication.statusName} */}
             <Status
               status={props.editApplication.statusName}
               statusList={props.statusList}
@@ -92,9 +92,13 @@ export const EditApplication = (props) => {
         {/* Испольнитель */}
         <div className={style.executor}>
           <p className={style.executor_label}>Исполнитель</p>
-          <p className={style.executor_name}>
+          {/* <p className={style.executor_name}>
             {props.editApplication.executorName}
-          </p>
+          </p> */}
+          <Executor
+            list={props.usersList}
+            executorRigtNow={props.editApplication.executorName}
+          />
         </div>
         {/* Приоритет */}
         <div className={style.priority}>

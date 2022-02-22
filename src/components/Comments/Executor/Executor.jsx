@@ -1,17 +1,20 @@
-import "./Status.css";
+import "./Executor.css";
 import React from "react";
 
 //Создаем ссылки для получения данных введенные пользователем
 let selectValue = React.createRef(); //Для названия заявки
 
-export const Status = (props) => {
+export const Executor = (props) => {
+  debugger;
   return (
     <select ref={selectValue}>
-      <option key="100">{props.status}</option>
-      {props.statusList.statuses.map((a) => (
+      <option key="10">{props.executorRigtNow}</option>
+      {props.list.users.map((a) =>
         /* Значения статусов */
-        <option key={a.id}>{a.name}</option>
-      ))}
+        a.name !== props.executorRigtNow ? (
+          <option key={a.id}>{a.name}</option>
+        ) : undefined
+      )}
     </select>
   );
 };

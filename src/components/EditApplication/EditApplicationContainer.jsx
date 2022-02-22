@@ -8,6 +8,7 @@ let mapStateToProps = (state) => {
   return {
     editApplication: state.applicationEdit,
     statusList: state.applicationsStatuses,
+    usersList: state.usersList,
   };
 };
 let mapDispathToProps = (dispatch) => {

@@ -4,13 +4,15 @@ import { applicationsReducer } from "./applicationsReducer";
 import thunkMiddleware from 'redux-thunk';
 import { editApplicationReducer } from "./editApplicationReducer";
 import { applicationsStatusesReducer } from "./applicationsStatusesReducer";
+import { usersReducer } from "./usersReducer";
 
 let reducers = combineReducers(
     {
         applicationsPage: applicationsReducer,
         applicationsPriorities: applicationsPrioritiesReducer,
         applicationEdit: editApplicationReducer,
-        applicationsStatuses: applicationsStatusesReducer
+        applicationsStatuses: applicationsStatusesReducer,
+        usersList: usersReducer
     }
 );
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));
