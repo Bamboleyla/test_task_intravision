@@ -28,7 +28,6 @@
 }
 
 .content {
-    background-color: bisque;
     margin-left: 95px;
     padding-top: 25px;
     position: relative;
@@ -69,7 +68,6 @@ p {
     height: 51px;
     box-sizing: border-box;
     display: inline-block;
-    border: 1px solid;
     margin-top: 5px;
     vertical-align: middle;
 }

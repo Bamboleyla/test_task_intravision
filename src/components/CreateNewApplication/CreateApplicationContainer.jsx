@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import React from "react";
 import { getApplicationID } from "../../redux/editApplicationReducer";
 import { Outlet, useNavigate } from "react-router";
-import { CreateNewApplication } from "../CreateNewApplication/CreateNewApplication";
+import { CreateNewApplication } from "./CreateNewApplication";
 
 // Шаблон для отправки новой заявки через api
 let applicationTemplate = {

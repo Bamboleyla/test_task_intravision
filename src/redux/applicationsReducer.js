@@ -3,6 +3,8 @@ import { setApplicationsPrioritiesAC } from "./applicationsPrioritiesReducer ";
 
 const GET_APPLICATIONS = 'GET_APPLICATIONS';
 const SAVE_COMMENT = 'SAVE_COMMENT';
+const SET_STATUS = 'SET_STATUS';
+const SET_EXECUTOR = 'SET_EXECUTOR';
 
 //Инициализационный state
 let initialState = {
@@ -52,12 +54,27 @@ export const applicationsReducer = (state = initialState, action) => {
             return { ...state, applications: [...action.applications] }
         case 'SAVE_COMMENT':
             for (let i = 0; i < state.applications.length; i++) {
-                debugger;
                 if (state.applications[i].id === action.id) {
                     state.applications[i].comment === undefined ?
                         state.applications[i].comment = action.comment :
                         state.applications[i].comment.push(action.comment);
-                    return
+                    return state
+                }
+            }
+            return state;
+        case 'SET_STATUS':
+            for (let i = 0; i < state.applications.length; i++) {
+                if (state.applications[i].id === action.id) {
+                    state.applications[i].statusName = action.status
+                    return state
+                }
+            }
+            return state;
+        case 'SET_EXECUTOR':
+            for (let i = 0; i < state.applications.length; i++) {
+                if (state.applications[i].id === action.id) {
+                    state.applications[i].executorName = action.executor
+                    return state
                 }
             }
             return state;
@@ -65,8 +82,11 @@ export const applicationsReducer = (state = initialState, action) => {
     }
 };
 /*****************************************************************************ACTION CREATORS*********************************************************************************************/
-export let getApplicationsAC = (applications) => ({ type: GET_APPLICATIONS, applications })
-let addCommentAC = (id, text) => ({ type: SAVE_COMMENT, id, text })
+export let getApplicationsAC = (applications) => ({ type: GET_APPLICATIONS, applications });
+let addCommentAC = (id, text) => ({ type: SAVE_COMMENT, id, text });
+export let setStatusAC = (id, status) => ({ type: SET_STATUS, id, status });
+export let setExecutorAC = (id, executor) => ({ type: SET_EXECUTOR, id, executor });
+
 /*****************************************************************************THUNKS-CREATOR***********************************************************************************************/
 //Получение списка заявок
 export const getApplications = () => async (dispatch) => {
@@ -74,10 +94,10 @@ export const getApplications = () => async (dispatch) => {
     dispatch(setApplicationsPrioritiesAC(preopities))
     const applications = await applicationsAPI.getApplications();
     dispatch(getApplicationsAC(applications.value));
-}
+};
 
 export const addComment = (id, text) => {
     return (dispatch) => {
         dispatch(addCommentAC(id, text))
     }
-}
+};

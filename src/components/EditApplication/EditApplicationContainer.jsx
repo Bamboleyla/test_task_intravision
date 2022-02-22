@@ -1,5 +1,9 @@
 import { connect } from "react-redux";
-import { addComment } from "../../redux/applicationsReducer";
+import {
+  addComment,
+  setExecutorAC,
+  setStatusAC,
+} from "../../redux/applicationsReducer";
 import { addCommentPropertyAC } from "../../redux/editApplicationReducer";
 import { EditApplication } from "./EditApplication";
 
@@ -14,6 +18,8 @@ let mapStateToProps = (state) => {
 let mapDispathToProps = (dispatch) => {
   return {
     addComment,
+    changeStatus: (id, status) => dispatch(setStatusAC(id, status)),
+    changeExecutor: (id, executor) => dispatch(setExecutorAC(id, executor)),
     setComment: (text) => dispatch(addCommentPropertyAC(text)),
   };
 };

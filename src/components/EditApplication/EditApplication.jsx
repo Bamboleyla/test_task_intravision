@@ -4,8 +4,8 @@ import сalendar from "./сalendar.png";
 import { NavLink } from "react-router-dom";
 import React, { useState } from "react";
 import { Comments } from "../Comments/Comments";
-import { Status } from "./Status/Status";
-import { Executor } from "../Comments/Executor/Executor";
+import { Status } from "../Status/Status";
+import { Executor } from "../Executor/Executor";
 
 //Создаем ссылки для получения данных введенные пользователем
 let commentValue = React.createRef(); //Для названия заявки
@@ -14,13 +14,24 @@ let discriptionValue = React.createRef(); //Для описания заявки
 export const EditApplication = (props) => {
   debugger;
   //Использование хука useState
-  let [comment, setComment] = useState(props.status);
+  let [comment, setComment] = useState(props.status); //Текст комментария введенный пользователем
+  let [status, setStatus] = useState(props.editApplication.statusName); //Статус заявки выбранный пользователем
+  let [executor, setExecutor] = useState(props.editApplication.executorName); //Исполнитель выбранный пользователем
 
   let addTextComment = () => setComment(commentValue.current.value);
+
   let send = () => {
-    props.addComment(props.editApplication.id, comment);
-    props.setComment(comment);
-    setComment("");
+    if (comment !== undefined) {
+      props.addComment(props.editApplication.id, comment);
+      props.setComment(comment);
+      setComment("");
+    }
+    if (status !== props.editApplication.statusName) {
+      props.changeStatus(props.editApplication.id, status);
+    }
+    if (executor !== props.editApplication.executorName) {
+      props.changeExecutor(props.editApplication.id, executor);
+    }
   };
   return (
     <div className={style.body_form}>
@@ -50,9 +61,11 @@ export const EditApplication = (props) => {
           onChange={addTextComment}
           value={comment}></textarea>
         {/* Кнопка Сохнанить */}
-        <div className={style.button} onClick={send}>
-          <p>Сохранить</p>
-        </div>
+        <NavLink to="/applications">
+          <div className={style.button} onClick={send}>
+            <p>Сохранить</p>
+          </div>
+        </NavLink>
       </div>
       {/* Блок комментариев */}
       <div className={style.comments}>
@@ -76,6 +89,7 @@ export const EditApplication = (props) => {
             <Status
               status={props.editApplication.statusName}
               statusList={props.statusList}
+              setStatus={setStatus}
             />
           </span>
         </div>
@@ -92,12 +106,10 @@ export const EditApplication = (props) => {
         {/* Испольнитель */}
         <div className={style.executor}>
           <p className={style.executor_label}>Исполнитель</p>
-          {/* <p className={style.executor_name}>
-            {props.editApplication.executorName}
-          </p> */}
           <Executor
             list={props.usersList}
             executorRigtNow={props.editApplication.executorName}
+            setExecutor={setExecutor}
           />
         </div>
         {/* Приоритет */}

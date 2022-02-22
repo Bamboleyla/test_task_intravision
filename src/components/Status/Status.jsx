@@ -5,8 +5,11 @@ import React from "react";
 let selectValue = React.createRef(); //Для названия заявки
 
 export const Status = (props) => {
+  let changeStatus = () => {
+    props.setStatus(selectValue.current.value);
+  };
   return (
-    <select ref={selectValue}>
+    <select ref={selectValue} onChange={changeStatus}>
       <option key="100">{props.status}</option>
       {props.statusList.statuses.map((a) => (
         /* Значения статусов */

@@ -12,7 +12,7 @@ import {
   Route
 } from "react-router-dom"
 import { EditApplicationContainer } from './components/EditApplication/EditApplicationContainer';
-import { CreateApplicationContainer } from './components/CreateApplication/CreateApplicationContainer';
+import { CreateApplicationContainer } from './components/CreateNewApplication/CreateApplicationContainer';
 import React from "react";
 
 export class App extends React.Component {

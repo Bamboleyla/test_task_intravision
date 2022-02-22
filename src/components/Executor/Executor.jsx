@@ -5,9 +5,12 @@ import React from "react";
 let selectValue = React.createRef(); //Для названия заявки
 
 export const Executor = (props) => {
+  let changeExecutor = () => {
+    props.setExecutor(selectValue.current.value);
+  };
   debugger;
   return (
-    <select ref={selectValue}>
+    <select ref={selectValue} onChange={changeExecutor}>
       <option key="10">{props.executorRigtNow}</option>
       {props.list.users.map((a) =>
         /* Значения статусов */
