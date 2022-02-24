@@ -48,7 +48,6 @@ export const StringWithNavigate = (props) => {
   return (
     <String
       navigate={navigate}
-      key={props.key}
       prioritiesRgb={props.prioritiesRgb}
       statusRgb={props.statusRgb}
       id={props.id}

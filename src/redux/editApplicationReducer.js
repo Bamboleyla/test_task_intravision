@@ -48,7 +48,6 @@ let initialState = {
 };
 
 export const editApplicationReducer = (state = initialState, action) => {
-    debugger;
     switch (action.type) {
         case 'SET_APPLICATION':
             state = action.data
@@ -59,7 +58,6 @@ export const editApplicationReducer = (state = initialState, action) => {
                 state.comment.push(action.data)
             }
             else state.comment.push(action.data)
-
             return state;
         default: return state;
     }

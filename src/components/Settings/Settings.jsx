@@ -1,3 +1,5 @@
+import "../../App.css";
+
 export const Settings = () => {
-  return <div></div>;
+  return <h1>Настройки</h1>;
 };

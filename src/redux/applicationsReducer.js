@@ -13,7 +13,7 @@ let initialState = {
         {
             'id': 193710,
             'name': 'Заказать обед',
-            'description': '<p style=\color: #e5e5e5;\>Уха</p> из трех видов рыб. Салат с телятиной. МОРС КЛЮКВЕННЫЙ',
+            'description': 'МОРС КЛЮКВЕННЫЙ',
             'createdAt': '2022-02-07T07:34:08.2275098+03:00',
             'updatedAt': '2022-02-07T07:34:08.2275098+03:00',
             'price': 100.0,
@@ -44,7 +44,8 @@ let initialState = {
                 }
             ]
         }
-    ]
+    ],
+    'rerender': false,
 };
 
 export const applicationsReducer = (state = initialState, action) => {
@@ -63,21 +64,23 @@ export const applicationsReducer = (state = initialState, action) => {
             }
             return state;
         case 'SET_STATUS':
-            for (let i = 0; i < state.applications.length; i++) {
-                if (state.applications[i].id === action.id) {
-                    state.applications[i].statusName = action.status
-                    return state
-                }
-            }
-            return state;
+            const newStatus = {
+                applications: state.applications.map((app) =>
+                    app.id === action.id
+                        ? { ...app, statusName: action.status }
+                        : app
+                ),
+            };
+            return newStatus;
         case 'SET_EXECUTOR':
-            for (let i = 0; i < state.applications.length; i++) {
-                if (state.applications[i].id === action.id) {
-                    state.applications[i].executorName = action.executor
-                    return state
-                }
-            }
-            return state;
+            const newExecutor = {
+                applications: state.applications.map((app) =>
+                    app.id === action.id
+                        ? { ...app, executorName: action.executor }
+                        : app
+                ),
+            };
+            return newExecutor;
         default: return state;
     }
 };

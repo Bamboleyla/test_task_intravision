@@ -14,3 +14,8 @@
 .content {
   height: 1120px;
 }
+
+/* Общие стили для некоторых страниц */
+h1 {
+  text-align: center;
+}

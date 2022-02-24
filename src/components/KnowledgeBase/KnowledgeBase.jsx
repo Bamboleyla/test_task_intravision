@@ -1,3 +1,5 @@
+import "../../App.css";
+
 export const KnowledgeBase = () => {
-  return <div></div>;
+  return <h1>База знаний</h1>;
 };

@@ -1,3 +1,5 @@
+import "../../App.css";
+
 export const Clients = () => {
-  return <div></div>;
+  return <h1>Клиенты</h1>;
 };

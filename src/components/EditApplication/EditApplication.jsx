@@ -32,6 +32,7 @@ export const EditApplication = (props) => {
     if (executor !== props.editApplication.executorName) {
       props.changeExecutor(props.editApplication.id, executor);
     }
+    props.rerender();
   };
   return (
     <div className={style.body_form}>
@@ -52,7 +53,8 @@ export const EditApplication = (props) => {
         <textarea
           className={style.discription_text}
           ref={discriptionValue}
-          value={props.editApplication.description}></textarea>
+          value={props.editApplication.description}
+          readOnly></textarea>
         {/* Поле ввода комментариев */}
         <p className={style.add_comment}>Добавление комментариев</p>
         <textarea

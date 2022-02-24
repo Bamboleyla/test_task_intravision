@@ -3,6 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import { StringWithNavigate } from "../string/String";
 
 export const Applications = (props) => {
+  debugger;
   //Поиск приоритета заявки по id
   let findPrioriti = (id) => props.priorities.find((el) => el.id === id);
   return (
@@ -36,20 +37,21 @@ export const Applications = (props) => {
           <div className={style.body}></div>
           {props.applicationsList.map((a) => (
             /* Строки таблицы */
-            <StringWithNavigate
-              key={a.id}
-              getApplication={props.getApplication}
-              prioritiesRgb={
-                findPrioriti(a.priorityId) === undefined
-                  ? undefined
-                  : findPrioriti(a.priorityId).rgb
-              }
-              statusRgb={a.statusRgb}
-              id={a.id}
-              name={a.name}
-              statusName={a.statusName}
-              executorName={a.executorName}
-            />
+            <div key={a.id}>
+              <StringWithNavigate
+                getApplication={props.getApplication}
+                prioritiesRgb={
+                  findPrioriti(a.priorityId) === undefined
+                    ? undefined
+                    : findPrioriti(a.priorityId).rgb
+                }
+                statusRgb={a.statusRgb}
+                id={a.id}
+                name={a.name}
+                statusName={a.statusName}
+                executorName={a.executorName}
+              />
+            </div>
           ))}
         </div>
       </div>
