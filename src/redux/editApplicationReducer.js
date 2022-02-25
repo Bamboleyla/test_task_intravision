@@ -49,23 +49,24 @@ let initialState = {
 };
 
 export const editApplicationReducer = (state = initialState, action) => {
+    debugger;
     switch (action.type) {
         case 'SET_APPLICATION':
             return action.data;
         case 'ADD_COMMENT':
-            if (state.comment === undefined) {
-                state.comment = [];
-                state.comment.push(action.data)
+            const newComment = { ...state };
+            if (newComment.comment === undefined) {
+                newComment.comment = [action.data];
             }
-            else state.comment.push(action.data)
-            return state;
+            else newComment.comment.push(action.data)
+            return newComment;
         default: return state;
     }
 };
 
 /*****************************************************************************ACTION CREATORS*********************************************************************************************/
 export let setApplicationsAC = (data) => ({ type: SET_APPLICATION, data })
-export let addCommentPropertyAC = (data) => ({ type: ADD_COMMENT, data })
+export let setCommentAC = (data) => ({ type: ADD_COMMENT, data })
 
 /*****************************************************************************THUNKS-CREATOR***********************************************************************************************/
 

@@ -49,20 +49,19 @@ let initialState = {
 };
 
 export const applicationsReducer = (state = initialState, action) => {
-    debugger;
+    debugger
     switch (action.type) {
         case 'GET_APPLICATIONS':
             return { ...state, applications: [...action.applications] }
         case 'SAVE_COMMENT':
-            for (let i = 0; i < state.applications.length; i++) {
-                if (state.applications[i].id === action.id) {
-                    state.applications[i].comment === undefined ?
-                        state.applications[i].comment = action.comment :
-                        state.applications[i].comment.push(action.comment);
-                    return state
-                }
-            }
-            return state;
+            const newComment = {
+                applications: state.applications.map((app) =>
+                    app.id === action.id
+                        ? app.comment === undefined ? { ...app, comment: [action.comment] } : { ...app, comment: [...app.comment, action.comment] }
+                        : app
+                ),
+            };
+            return newComment;
         case 'SET_STATUS':
             const newStatus = {
                 applications: state.applications.map((app) =>
@@ -86,7 +85,7 @@ export const applicationsReducer = (state = initialState, action) => {
 };
 /*****************************************************************************ACTION CREATORS*********************************************************************************************/
 export let getApplicationsAC = (applications) => ({ type: GET_APPLICATIONS, applications });
-let addCommentAC = (id, text) => ({ type: SAVE_COMMENT, id, text });
+export let addCommentAC = (id, comment) => ({ type: SAVE_COMMENT, id, comment });
 export let setStatusAC = (id, status) => ({ type: SET_STATUS, id, status });
 export let setExecutorAC = (id, executor) => ({ type: SET_EXECUTOR, id, executor });
 
@@ -97,10 +96,4 @@ export const getApplications = () => async (dispatch) => {
     dispatch(setApplicationsPrioritiesAC(preopities))
     const applications = await applicationsAPI.getApplications();
     dispatch(getApplicationsAC(applications.value));
-};
-//Добавление комментария
-export const addComment = (id, text) => {
-    return (dispatch) => {
-        dispatch(addCommentAC(id, text))
-    }
 };

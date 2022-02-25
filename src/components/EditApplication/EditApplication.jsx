@@ -13,6 +13,7 @@ let discriptionValue = React.createRef(); //Для описания заявки
 
 /*********** Компонента-форма для редактирования заявок ************/
 export const EditApplication = (props) => {
+  debugger;
   //Использование хука useState, для создания локального state
   let [comment, setComment] = useState(props.status); //Текст комментария введенный пользователем
   let [status, setStatus] = useState(props.editApplication.statusName); //Статус заявки выбранный пользователем
@@ -23,6 +24,7 @@ export const EditApplication = (props) => {
 
   //Отправка измененых данных в карточке заявки в state
   let send = () => {
+    debugger;
     //Отправляем комментарий, если он появился
     if (comment !== undefined) {
       props.addComment(props.editApplication.id, comment);
