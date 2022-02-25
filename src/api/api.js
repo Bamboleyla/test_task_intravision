@@ -1,13 +1,14 @@
 import * as axios from "axios";
 
 /*************************Здесь делаем все запросы к API*****************************/
+//Устанавливаем базовый URL для axios
 const instance = axios.create({
     baseURL: 'http://intravision-task.test01.intravision.ru'
 })
-//Мой tenantguid
+//Мой tenantguid, сделаем константой
 const TENANTGUID = 'f4ab007d-4315-4f51-8fee-5dbd07dcd788';
 
-//Запросы связанные с заявками
+//Все запросы добавим в один обьект, для простоты ипользования
 export const applicationsAPI = {
     //Получение списка заявок
     getApplications() {

@@ -8,11 +8,11 @@ import { usersReducer } from "./usersReducer";
 
 let reducers = combineReducers(
     {
-        applicationsPage: applicationsReducer,
-        applicationsPriorities: applicationsPrioritiesReducer,
-        applicationEdit: editApplicationReducer,
-        applicationsStatuses: applicationsStatusesReducer,
-        usersList: usersReducer
+        applicationsPage: applicationsReducer, //Список заявок
+        applicationsPriorities: applicationsPrioritiesReducer, //Список приоритетов
+        applicationEdit: editApplicationReducer, //Форма редактируемой заявки
+        applicationsStatuses: applicationsStatusesReducer, //Список статусов заявок
+        usersList: usersReducer //Список пользователей
     }
 );
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

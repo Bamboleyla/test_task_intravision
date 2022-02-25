@@ -20,12 +20,14 @@ let applicationTemplate = {
   executorId: 0,
   executorGroupId: 0,
 };
+//Добавляем хук useNavigate(), что бы менять url после выполнения всех модификаций state
 const AddNavigate = (props) => {
   let navigate = useNavigate();
   let changeUrl = () => {
     navigate("../edit", { replace: true });
   };
   return (
+    //Пробрасываем обработчики событий для компоненты
     <CreateNewApplication
       name={props.name}
       description={props.description}
@@ -45,6 +47,7 @@ class BlockNewApplicationsAPI extends React.Component {
       description: "",
     };
   }
+  /*************** Обработчики событий ********************/
   //Вносит изменения в название заявки
   changeName = (text) => {
     this.setState({
@@ -53,15 +56,14 @@ class BlockNewApplicationsAPI extends React.Component {
   };
   //Вносит изменения в описание заявки
   changeDescription = (text) => {
-    debugger;
     this.setState({
       description: text,
     });
   };
+  //Делает отправку шаблона заявки на API
   send = () => {
     applicationTemplate.name = this.state.name;
     applicationTemplate.description = this.state.description;
-    debugger;
     this.props.getApplicationID(applicationTemplate);
   };
 
@@ -69,6 +71,7 @@ class BlockNewApplicationsAPI extends React.Component {
     return (
       <div>
         <Outlet />
+        {/* Пробрасываем обработчики событий для компоненты */}
         <AddNavigate
           name={this.changeName}
           description={this.changeDescription}

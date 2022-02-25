@@ -24,13 +24,12 @@ export const applicationsStatusesReducer = (state = initialState, action) => {
 /*****************************************************************************ACTION CREATORS*********************************************************************************************/
 export let setApplicationsStatusesAC = (statuses) => ({ type: SET_STATUSES, statuses })
 /*****************************************************************************THUNKS-CREATOR***********************************************************************************************/
-//Получение списка заявок
+//Получение списка статусов
 export const getStatuses = () => {
     //Возврашаем Thunk
     return (dispatch) => {
         //Делаем запрос на сервер за массивом с приоритетами заявок
         applicationsAPI.getApplicationsStatuses().then((data) => {
-            /* И диспачем его в state через метод getApplicationsAC */
             dispatch(setApplicationsStatusesAC(data));
         });
     }

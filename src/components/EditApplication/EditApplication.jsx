@@ -11,36 +11,43 @@ import { Executor } from "../Executor/Executor";
 let commentValue = React.createRef(); //Для названия заявки
 let discriptionValue = React.createRef(); //Для описания заявки
 
+/*********** Компонента-форма для редактирования заявок ************/
 export const EditApplication = (props) => {
-  debugger;
-  //Использование хука useState
+  //Использование хука useState, для создания локального state
   let [comment, setComment] = useState(props.status); //Текст комментария введенный пользователем
   let [status, setStatus] = useState(props.editApplication.statusName); //Статус заявки выбранный пользователем
   let [executor, setExecutor] = useState(props.editApplication.executorName); //Исполнитель выбранный пользователем
 
-  let addTextComment = () => setComment(commentValue.current.value);
+  //Обработчики событий
+  let addTextComment = () => setComment(commentValue.current.value); //Добавление комментария
 
+  //Отправка измененых данных в карточке заявки в state
   let send = () => {
+    //Отправляем комментарий, если он появился
     if (comment !== undefined) {
       props.addComment(props.editApplication.id, comment);
       props.setComment(comment);
       setComment("");
     }
+    //Отправляем новый статус , если статус изменился
     if (status !== props.editApplication.statusName) {
       props.changeStatus(props.editApplication.id, status);
     }
+    //Отправляем нового исполнителя , если исполнитель изменился
     if (executor !== props.editApplication.executorName) {
       props.changeExecutor(props.editApplication.id, executor);
     }
-    props.rerender();
   };
   return (
+    /* Границы формы */
     <div className={style.body_form}>
+      {/* Заголовок формы */}
       <div className={style.header}>
         <div className={style.id}>{props.editApplication.id}</div>
         <div className={style.name}>
           <p>{props.editApplication.name}</p>
         </div>
+        {/* Кнопка закрыть форму */}
         <div className={style.close}>
           <NavLink to="/applications">
             <img src={close} alt="close" />

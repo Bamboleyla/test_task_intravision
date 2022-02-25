@@ -4,6 +4,7 @@ import { getApplicationsAC } from "./applicationsReducer";
 const SET_APPLICATION = 'SET_APPLICATION';
 const ADD_COMMENT = 'ADD_COMMENT';
 
+//Инициализационный state
 let initialState = {
     'id': 194722,
     'name': "hello!",
@@ -50,8 +51,7 @@ let initialState = {
 export const editApplicationReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'SET_APPLICATION':
-            state = action.data
-            return state;
+            return action.data;
         case 'ADD_COMMENT':
             if (state.comment === undefined) {
                 state.comment = [];
@@ -69,14 +69,14 @@ export let addCommentPropertyAC = (data) => ({ type: ADD_COMMENT, data })
 
 /*****************************************************************************THUNKS-CREATOR***********************************************************************************************/
 
-//Получение заявки по id
 export const getApplicationID = (pattern) => async (dispatch) => {
-    //Возврашаем Thunk
+    //Получаем id заявки с api
     const idApplication = await applicationsAPI.setNewApplication(pattern)
-    //Делаем запрос на сервер за массивом с заявками
+    //Делаем запрос на сервер за формой заявки по id
     const Application = await applicationsAPI.getApplication(idApplication)
     /* И диспачем его в state через метод getApplicationsAC */
     dispatch(setApplicationsAC(Application));
+    //Делаем запрос на сервер за новым списком заявок
     const ApplicationsList = await applicationsAPI.getApplications();
     dispatch(getApplicationsAC(ApplicationsList.value));
 }

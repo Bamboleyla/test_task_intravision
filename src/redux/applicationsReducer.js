@@ -98,7 +98,7 @@ export const getApplications = () => async (dispatch) => {
     const applications = await applicationsAPI.getApplications();
     dispatch(getApplicationsAC(applications.value));
 };
-
+//Добавление комментария
 export const addComment = (id, text) => {
     return (dispatch) => {
         dispatch(addCommentAC(id, text))

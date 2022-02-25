@@ -1,7 +1,7 @@
 import { applicationsAPI } from "../api/api";
 
 const SET_USERS = 'SET_USERS';
-
+//Инициализационный state
 let initialState = {
     users: [
         {
@@ -20,11 +20,11 @@ export const usersReducer = (state = initialState, action) => {
 /*****************************************************************************ACTION CREATORS*********************************************************************************************/
 export let setUsersListAC = (list) => ({ type: SET_USERS, list })
 /*****************************************************************************THUNKS-CREATOR***********************************************************************************************/
-//Получение списка заявок
+//Получение списка пользователей
 export const getUsers = () => {
     //Возврашаем Thunk
     return (dispatch) => {
-        //Делаем запрос на сервер за массивом с приоритетами заявок
+        //Делаем запрос на сервер за массивом с пользователями
         applicationsAPI.getUsers().then((data) => {
             /* И диспачем его в state через метод setUsersListAC */
             dispatch(setUsersListAC(data));

@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router";
 import style from "./String.module.css";
 
+//Компонента отображающая строку с заявкой в таблице с списком заявок
 const String = (props) => {
   //Поле с приоритетом заявки
   let priority = () => {
@@ -43,6 +44,7 @@ const String = (props) => {
   );
 };
 
+/* Компонента добавляющая возможность изменять url в комопненте String */
 export const StringWithNavigate = (props) => {
   let navigate = useNavigate();
   return (

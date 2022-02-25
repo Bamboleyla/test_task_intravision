@@ -6,8 +6,9 @@ import style from "./CreateNewApplication.module.css";
 let nameValue = React.createRef(); //Для названия заявки
 let descriptionValue = React.createRef(); //Для описания заявки
 
+/********** Компонента-форма создания новой Заявки ************/
 export const CreateNewApplication = (props) => {
-  //Отправка данных в local state
+  //Отправка данных описания и названия новой заявки в local state
   let sendName = () => props.name(nameValue.current.value); //текст названия
   let sendDescription = () => props.description(descriptionValue.current.value); //текст описания
   return (

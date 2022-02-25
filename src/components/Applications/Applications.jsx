@@ -2,8 +2,8 @@ import style from "./Applications.module.css";
 import { Link, Outlet } from "react-router-dom";
 import { StringWithNavigate } from "../string/String";
 
+/************** Компонента контента с списком заявок ******************/
 export const Applications = (props) => {
-  debugger;
   //Поиск приоритета заявки по id
   let findPrioriti = (id) => props.priorities.find((el) => el.id === id);
   return (
